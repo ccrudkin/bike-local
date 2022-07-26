@@ -16,11 +16,7 @@ export function getStaticProps() {
 export default function Home({ allTrailsData }) {
     return (
         <Template home>
-            <Head>
-                <title>Bike Casper</title>
-                <meta name="description" content="Get trail information, conditions, weather, and more for mountain-bike trails in the Casper, Wyoming area." />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <Head />
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">

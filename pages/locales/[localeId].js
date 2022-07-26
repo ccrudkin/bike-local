@@ -27,7 +27,10 @@ export default function LocaleInfo({ trailData }) {
     return (
         <Template>
             <div className="container">
-                <Head />
+                <Head>
+                    <title>{trailData.name}</title>
+                    <meta name="description" content={`Get conditions and ride ${trailData.name} near Casper.`} />
+                </Head>
                 <div className="row">
                     <div className="col-md-12">
                         <h1>{trailData.name}</h1>
