@@ -5,7 +5,6 @@ import { getTrailData, getTrailIDs } from '../../lib/all-locales';
 // this is where we'll fetch data
 export function getStaticProps({ params }) {
     const trailData = getTrailData(params.localeId);
-    console.log(`Trail data from getStaticProps: ${trailData}`);
     return { 
         props: {
             trailData,
