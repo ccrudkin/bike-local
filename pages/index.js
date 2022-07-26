@@ -24,7 +24,7 @@ export default function Home({ allTrailsData }) {
                     <div className="col-md-12">
                         <div className="mt-3"></div>
                         <h2>Get information on:</h2>
-                        <ul>
+                        <ul className='locales-list'>
                             {
                                 allTrailsData.map(({ id, name, difficulty }) => (
                                     <li key={id}>

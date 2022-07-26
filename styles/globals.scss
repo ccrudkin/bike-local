@@ -2,6 +2,7 @@
 
 $green: #27ae60;
 $blue: #2980b9;
+$lt-gray: #eeeeee;
 $black: #111111;
 
 body {
@@ -31,6 +32,9 @@ footer {
 
 .outer {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .green-circle {
@@ -43,4 +47,25 @@ footer {
 
 .black-diamond {
     color: $black;
+}
+
+.map-container {
+    max-width: 20em;
+    margin: auto;
+}
+
+ul.locales-list {
+    list-style: none;
+    margin: 1em 0em;
+    li {
+        font-size: 1.25em;
+        margin-bottom: 1em;
+    }
+}
+
+.trail-detail {
+    background-color: $lt-gray;
+    border-radius: 1em;
+    padding: .1em .5em .25em .5em;
+    margin-left: .5em;
 }

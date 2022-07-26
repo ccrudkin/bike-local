@@ -15,24 +15,26 @@ export default function Template({ children, home }) {
                 src="https://kit.fontawesome.com/00f2a344b9.js" 
                 crossorigin="anonymous"
             />
-            <header>
-                {home ? (
-                    <div className="site-header home">
-                        <h1>Bike Casper</h1>
-                        <p>Find info about local riding areas.</p>
-                    </div>
-                ) : (
-                    <div className='site-header not-home'>
-                        <h2>
-                            <Link href="/">
-                                <a>Bike Casper</a>
-                            </Link>
-                        </h2>
-                    </div>
-                )}
-            </header>
-            <main>{children}</main>
-            <footer className="fixed-bottom">
+            <div className='flex-section-container'>
+                <header>
+                    {home ? (
+                        <div className="site-header home">
+                            <h1>Bike Casper</h1>
+                            <p>Find info about local riding areas.</p>
+                        </div>
+                    ) : (
+                        <div className='site-header not-home'>
+                            <h2>
+                                <Link href="/">
+                                    <a>Bike Casper</a>
+                                </Link>
+                            </h2>
+                        </div>
+                    )}
+                </header>
+                <main>{children}</main>                
+            </div>
+            <footer>
                 <p>Footer info goes here.</p>
             </footer>
         </div>
