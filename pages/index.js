@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import Template from '../components/template';
 import styles from '../styles/Home.module.css';
 import { trails } from '../data/locales';
+import DifIcon from '../components/dificons';
 
 export function getStaticProps() {
     const allTrailsData = trails;
@@ -20,15 +22,17 @@ export default function Home({ allTrailsData }) {
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">
-                        <div className="mt-5"></div>
+                        <div className="mt-3"></div>
                         <h2>Get information on:</h2>
                         <ul>
                             {
                                 allTrailsData.map(({ id, name, difficulty }) => (
                                     <li key={id}>
-                                        {name}
+                                        <Link href={`/locales/${id}`}>
+                                            {name}                                            
+                                        </Link>
                                         <br />
-                                        {difficulty}
+                                        <DifIcon difficulty={difficulty} />
                                     </li>
                                 ))
                             }

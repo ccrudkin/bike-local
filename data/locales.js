@@ -2,10 +2,12 @@ export const trails = [
     {
         "id": "001",
         "name": "Eadsville",
-        "description": "This trail offers a well-rounded experience of mountain riding, with a mix of flowing single-track, heart-pounding climbs, and a few chunky, techical sections.",
+        "description": "This trail offers a well-rounded experience of mountain riding, with a mix of flowing single-track, heart-pounding climbs, and a few chunky, techical sections. Add on several optional sections to double this trail's length and elevation gain.",
         "map": "Eadsville map.",
-        "difficulty": "double black",
+        "difficulty": "blueBlack",
         "latlong": "42.737915, -106.316638",
+        "distance": "4 mi.",
+        "elevation": "520 ft.",
         "notes": "Cell phone signal is limited.",
         "info": {
             "conditions": "dry"
@@ -18,7 +20,9 @@ export const trails = [
         "map": "Sqaw Creek map.",
         "difficulty": "blue",
         "latlong": "42.790969, -106.394756",
-        "Notes": "Snakes are a common sight in summer months.",
+        "distance": "7.2 mi.",
+        "elevation": "980 ft.",
+        "notes": "Snakes are a common sight in summer months.",
         "info": {
             "conditions": "dry / dusty"
         }

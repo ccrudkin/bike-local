@@ -1,10 +1,25 @@
 // global css goes here
 
+$green: #27ae60;
+$blue: #2980b9;
+$black: #111111;
+
+body {
+    min-height: 100vh;
+}
+
 header {
     color: #eeeeee;
     background-color: #333333;
     padding: 1em 3em;
     margin-bottom: 3em;
+    a {
+        color: #eeeeee;
+        text-decoration: none;
+        &:hover {
+            color: #eeeeee;
+        }
+    }
 }
 
 footer {
@@ -12,4 +27,20 @@ footer {
     background-color: #333333;
     padding: 1em 3em;
     margin-top: 3em;    
+}
+
+.outer {
+    min-height: 100vh;
+}
+
+.green-circle {
+    color: $green;
+}
+
+.blue-square {
+    color: $blue;
+}
+
+.black-diamond {
+    color: $black;
 }

@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Template({ children, home }) {
     return (
-        <div>
+        <div className='outer'>
             <Head>
                 {home && <title>Bike Casper - Home</title>}
                 {home && <meta name="description" content="Discover mountain biking trails and conditions around Casper, Wyoming." />}
@@ -23,12 +23,16 @@ export default function Template({ children, home }) {
                     </div>
                 ) : (
                     <div className='site-header not-home'>
-                        <h2>Bike Casper</h2>
+                        <h2>
+                            <Link href="/">
+                                <a>Bike Casper</a>
+                            </Link>
+                        </h2>
                     </div>
                 )}
             </header>
             <main>{children}</main>
-            <footer>
+            <footer className="fixed-bottom">
                 <p>Footer info goes here.</p>
             </footer>
         </div>
