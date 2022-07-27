@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Template from '../../components/template';
 import DifIcon from '../../components/dificons';
-import { getTrailDataDB, getTrailIDs } from '../../lib/all-locales';
+import { getTrailDataDB, getTrailIDsDB } from '../../lib/all-locales';
 import ReportConditions from '../../components/trail-conditions';
 import { processConditions } from '../../components/trail-conditions';
 
@@ -19,7 +19,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-    const paths = getTrailIDs();
+    const paths = await getTrailIDsDB();
     return {
         paths,
         fallback: false

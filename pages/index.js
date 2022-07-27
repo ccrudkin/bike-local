@@ -3,14 +3,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Template from '../components/template';
 import styles from '../styles/Home.module.css';
-import { trails } from '../data/locales';
+import { getTrailBasicsDB } from '../lib/all-locales';
 import DifIcon from '../components/dificons';
 
-export function getStaticProps() {
-    const allTrailsData = trails;
+export async function getStaticProps() {
+    let allTrailsData = await getTrailBasicsDB();
     return { 
         props: {
-            allTrailsData,
+            allTrailsData
         },
     };
 }
