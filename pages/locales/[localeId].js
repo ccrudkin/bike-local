@@ -3,21 +3,22 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Template from '../../components/template';
 import DifIcon from '../../components/dificons';
-import { getTrailData, getTrailIDs } from '../../lib/all-locales';
+import { getTrailDataDB, getTrailIDs } from '../../lib/all-locales';
 import ReportConditions from '../../components/trail-conditions';
-import { getCurrentConditions } from '../../components/trail-conditions';
+import { processConditions } from '../../components/trail-conditions';
 
-// this is where we'll fetch data
-export function getStaticProps({ params }) {
-    const trailData = getTrailData(params.localeId);
+export async function getStaticProps({ params }) {
+    let trailData = await getTrailDataDB(params.localeId);
+    // console.log(`Awaited trailData: ${JSON.stringify(trailData)}`);
+    // trailData = JSON.parse(JSON.stringify(trailData));
     return { 
         props: {
-            trailData,
+            trailData
         },
     };
 }
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
     const paths = getTrailIDs();
     return {
         paths,
@@ -26,6 +27,7 @@ export function getStaticPaths() {
 }
 
 export default function LocaleInfo({ trailData }) {
+    // console.log(`Trail data from LocaleInfo: \n${JSON.stringify(trailData)}`);
     return (
         <Template>
             <div className="container">
@@ -43,7 +45,7 @@ export default function LocaleInfo({ trailData }) {
                         <p>{trailData.description}</p>                           
                         <p>Difficulty: <span className="trail-detail"><DifIcon difficulty={trailData.difficulty} /></span></p>
                         <p>Trailhead: <span className="trail-detail">{trailData.latlong}</span></p>
-                        <p>Most riders say the trail condition is: <span className="trail-detail">{getCurrentConditions(trailData.id).replace(/-/, ' ')}</span></p>
+                        <p>Most riders say the trail condition is: <span className="trail-detail">{processConditions(trailData.conditions)}</span></p>
                         <ReportConditions />
                     </div>                    
                     <div className="col-sm-5">

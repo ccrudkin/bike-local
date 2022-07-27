@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { trails } from '../data/locales';
 
-export const getCurrentConditions = (idNum) => {
+export const processConditions = (conditions) => {
     // this will become more sophisticated soon
     // e.g., obstruction reports take precedence and reports have an expiration time/date
     // or a special alert for obsructed or damaged trail reports until overwritten by newer report (!)
@@ -15,17 +15,14 @@ export const getCurrentConditions = (idNum) => {
         "muddy": "wet and muddy",
         "obstructed": "damaged or obstructed",        
     }
-    for (let i = 0; i < trails.length; i++) {
-        if (trails[i].id === idNum) {
-            // console.log(`This trail is: ${trails[i].id}`);
-            for (const cond in trails[i].conditions) {
-                // console.log(`Location: ${trails[i].id} Condition: ${cond} / Reports: \n${trails[i].conditions[cond].length}`);
-                if (trails[i].conditions[cond].length > mostReports) {
-                    // console.log(`Condition: ${cond} / Reports: \n${trails[i].conditions[cond].length}`);
-                    mostReports = trails[i].conditions[cond].length;
-                    mostReported = cond;
-                }
-            }
+
+    // console.log(`This trail is: ${trails[i].id}`);
+    for (const cond in conditions) {
+        // console.log(`Location: ${trails[i].id} Condition: ${cond} / Reports: \n${trails[i].conditions[cond].length}`);
+        if (conditions[cond].length > mostReports) {
+            // console.log(`Condition: ${cond} / Reports: \n${trails[i].conditions[cond].length}`);
+            mostReports = conditions[cond].length;
+            mostReported = cond;
         }
     }
     return display[mostReported];

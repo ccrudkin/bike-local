@@ -11,14 +11,17 @@ export let trails = [
         "notes": "Cell phone signal is limited.",
         "conditions": {
             "dry": [
-                'Tue Jul 26 2022 14:43:02 GMT-0600 (Mountain Daylight Time)',
+                "Tue Jul 26 2022 14:43:02 GMT-0600 (Mountain Daylight Time)"
             ],
             "dry-dusty": [],
             "heavy-snow": [],
             "light-snow": [],
             "muddy": [],
-            "obstructed": [],
-        }
+            "obstructed": []
+        },
+        "ridereports": [
+            "Tue Jul 26 2022 14:44:02 GMT-0600 (Mountain Daylight Time)"
+        ]
     },
     {
         "id": "002",
@@ -33,15 +36,19 @@ export let trails = [
         "conditions": {
             "dry": [],
             "dry-dusty": [
-                'Tue Jul 26 2022 13:43:02 GMT-0600 (Mountain Daylight Time)',
-                'Tue Jul 26 2022 15:43:02 GMT-0600 (Mountain Daylight Time)'
+                "Tue Jul 26 2022 13:43:02 GMT-0600 (Mountain Daylight Time)",
+                "Tue Jul 26 2022 15:43:02 GMT-0600 (Mountain Daylight Time)"
             ],
             "heavy-snow": [],
             "light-snow": [],
             "muddy": [
-                'Mon Jul 25 2022 14:43:02 GMT-0600 (Mountain Daylight Time)',
+                "Mon Jul 25 2022 14:43:02 GMT-0600 (Mountain Daylight Time)"
             ],
-            "obstructed": [],
-        }
+            "obstructed": []
+        },
+        "ridereports": [
+            "Tue Jul 26 2022 14:45:02 GMT-0600 (Mountain Daylight Time)",
+            "Tue Jul 26 2022 14:46:02 GMT-0600 (Mountain Daylight Time)"
+        ]
     }    
 ]
