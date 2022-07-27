@@ -43,7 +43,7 @@ export default function LocaleInfo({ trailData }) {
                         <p>{trailData.description}</p>                           
                         <p>Difficulty: <span className="trail-detail"><DifIcon difficulty={trailData.difficulty} /></span></p>
                         <p>Trailhead: <span className="trail-detail">{trailData.latlong}</span></p>
-                        <p>Most reports say the trail condition is: <span className="trail-detail">{getCurrentConditions(trailData.id).replace(/-/, ' ')}</span></p>
+                        <p>Most riders say the trail condition is: <span className="trail-detail">{getCurrentConditions(trailData.id).replace(/-/, ' ')}</span></p>
                         <ReportConditions />
                     </div>                    
                     <div className="col-sm-5">
