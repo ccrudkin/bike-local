@@ -6,7 +6,7 @@ import styles from '../styles/Home.module.css';
 import { getTrailBasicsDB } from '../lib/all-locales';
 import DifIcon from '../components/dificons';
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     let allTrailsData = await getTrailBasicsDB();
     return { 
         props: {
@@ -16,6 +16,9 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allTrailsData }) {
+    // next up: experiment with getting data with the effect hook and loading it after initial render
+    // this will probably be accomplished via the API feature
+    // query an API endpoint; API queries MDB; API sends data back to fill in
     return (
         <Template home>
             <Head />

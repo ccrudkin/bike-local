@@ -3,11 +3,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Template from '../../components/template';
 import DifIcon from '../../components/dificons';
-import { getTrailDataDB, getTrailIDsDB } from '../../lib/all-locales';
+import { getTrailDataDB } from '../../lib/all-locales';
 import ReportConditions from '../../components/trail-conditions';
 import { processConditions } from '../../components/trail-conditions';
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
     let trailData = await getTrailDataDB(params.localeId);
     // console.log(`Awaited trailData: ${JSON.stringify(trailData)}`);
     // trailData = JSON.parse(JSON.stringify(trailData));
@@ -18,13 +18,13 @@ export async function getStaticProps({ params }) {
     };
 }
 
-export async function getStaticPaths() {
-    const paths = await getTrailIDsDB();
-    return {
-        paths,
-        fallback: false
-    }
-}
+// export async function getStaticPaths() {
+//     const paths = await getTrailIDsDB();
+//     return {
+//         paths,
+//         fallback: false
+//     }
+// }
 
 export default function LocaleInfo({ trailData }) {
     // console.log(`Trail data from LocaleInfo: \n${JSON.stringify(trailData)}`);
