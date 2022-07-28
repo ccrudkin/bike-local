@@ -4,6 +4,7 @@ export const processConditions = (conditions) => {
     // this will become more sophisticated soon
     // e.g., obstruction reports take precedence and reports have an expiration time/date
     // or a special alert for obsructed or damaged trail reports until overwritten by newer report (!)
+    // and when reports are matched in number, newer reports take precedence
     let mostReports = 0;
     let mostReported = 'not reported';
     let display = {
