@@ -39,11 +39,11 @@ export default function LocaleInfo({ trailData }) {
     useEffect(() => {
         fetch(`/api/trail-condition?localeId=${localeId}` )
         .then((response) => {
-            console.log(response.status)
+            // console.log(response.status)
             return response.json();
         })
         .then((response) => {
-            console.log(response);
+            // console.log(response);
             setCondition(response);
         });
     }, [])    
@@ -65,13 +65,13 @@ export default function LocaleInfo({ trailData }) {
                         <p>{trailData.description}</p>                           
                         <p>Difficulty: <span className="trail-detail"><DifIcon difficulty={trailData.difficulty} /></span></p>
                         <p>Trailhead: <span className="trail-detail">{trailData.latlong}</span></p>
-                        <p>Most riders say the trail condition is: 
-                            {condition
-                                ? <span className="trail-detail">{processConditions(condition.conditions)}</span>
-                                : <span className="loading-placeholder loading-text"></span>
-                            }
-                        </p>
-                        <ReportConditions />
+                        {condition
+                            ? <p>Most riders say the trail is: 
+                                <span className="trail-detail">{processConditions(condition.conditions)}</span>
+                            </p>
+                            : <p><span className="loading-placeholder loading-text"></span></p>
+                        }
+                        <ReportConditions pageID={localeId} />
                     </div>                    
                     <div className="col-sm-5">
                         <div className="map-container">

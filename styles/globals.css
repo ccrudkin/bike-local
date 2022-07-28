@@ -61,6 +61,7 @@ ul.locales-list li {
   border-radius: 1em;
   padding: 0.1em 0.5em 0.25em 0.5em;
   margin-left: 0.5em;
+  white-space: nowrap;
 }
 
 .loading-placeholder {
@@ -83,9 +84,16 @@ ul.locales-list li {
 }
 
 .loading-text {
-  width: 6em;
+  width: 80%;
   height: 1em;
-  margin: 0 0 -0.25em 0.5em;
+}
+
+.conditions-label {
+  margin-bottom: 0.5em;
+}
+
+#select-conditions {
+  margin-bottom: 1em;
 }
 
 @keyframes loadfade {

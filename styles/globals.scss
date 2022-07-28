@@ -69,6 +69,7 @@ ul.locales-list {
     border-radius: 1em;
     padding: .1em .5em .25em .5em;
     margin-left: .5em;
+    white-space: nowrap;
 }
 
 .loading-placeholder {
@@ -88,12 +89,19 @@ ul.locales-list {
 .loading-sm {
     width: 5em;
     height: 1em;
-}    
+}
 
 .loading-text {
-    width: 6em;
+    width: 80%;
     height: 1em;
-    margin: 0 0 -.25em .5em;
+}
+
+.conditions-label {
+    margin-bottom: .5em;
+}
+
+#select-conditions {
+    margin-bottom: 1em;
 }
 
 @keyframes loadfade {

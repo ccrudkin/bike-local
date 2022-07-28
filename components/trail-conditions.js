@@ -27,8 +27,10 @@ export const processConditions = (conditions) => {
     return display[mostReported];
 }
 
-export default function ReportConditions() {
+export default function ReportConditions({ pageID }) {
     const [conditions, setConditions] = useState('not reported');
+
+    // console.log(`Props passed: ${pageID}`);
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -36,11 +38,26 @@ export default function ReportConditions() {
         console.log(`Selected: ${e.target.value}`);
     }
 
+    const handleClick = () => {
+        fetch(`/api/trail-condition?localeId=${pageID}&condReport=${conditions}`,
+        {
+            method: 'POST'
+        })
+        .then((response) => {
+            console.log(response.status)
+            return response.json();
+        })
+        .then((response) => {
+            console.log(`Report response: ${JSON.stringify(response)}`);
+            // UP SOON: change or disable the button and give confirmation here
+        });
+    }
+
     // console.log(`Selected: ${conditions}`);
 
     return (
         <div>
-            <label htmlFor="select-conditions">Report conditions:</label>
+            <label htmlFor="select-conditions" className="conditions-label">Report current conditions:</label>
             <br />
             <select name="conditions-report" id="select-conditions" onChange={handleChange}>
                 <option value="">-- Choose conditions to report --</option>
@@ -51,6 +68,8 @@ export default function ReportConditions() {
                 <option value="muddy">Wet and muddy</option>
                 <option value="obstructed">Damaged or obstructed</option>
             </select>
+            <br />
+            <button className="btn btn-primary" onClick={handleClick}>Submit</button>
         </div>
     )
 }
