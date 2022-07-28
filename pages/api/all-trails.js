@@ -3,8 +3,7 @@ const dbName = process.env.mdbName;
 const dbColl = process.env.mdbColl;
 
 export default async function handler(req, res) {
-
-    let prom = new Promise((resolve, reject) => {
+    if (req.method === 'GET') {
         const { MongoClient, ServerApiVersion } = require('mongodb');
         const client = new MongoClient(
             uri,
@@ -31,9 +30,9 @@ export default async function handler(req, res) {
                 const allTrailsData = await cursor.toArray();
                 if (allTrailsData.length === 0) {
                     console.log('No document found.');
-                    reject('Retrieval error. No documents found.');
+                    res.status(500).json({ message: 'No document found.' });
                 }                
-                resolve(allTrailsData);
+                res.status(200).json(allTrailsData);
             } catch (err) {
                 console.log(`Unable to retrieve data: ${err}`);
             } finally {
@@ -41,10 +40,6 @@ export default async function handler(req, res) {
             }
         }
         run().catch(console.dir);
-    }); 
-
-    if (req.method === 'GET') {
-        res.status(200).json(await prom);
     } else {
         res.status(403);
     }

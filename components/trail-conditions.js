@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { trails } from '../data/locales';
 
 export const processConditions = (conditions) => {
     // this will become more sophisticated soon

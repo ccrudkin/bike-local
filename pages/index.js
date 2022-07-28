@@ -18,23 +18,20 @@ import DifIcon from '../components/dificons';
 // }
 
 export default function Home() {
-    // next up: experiment with getting data with the effect hook and loading it after initial render
-    // this will probably be accomplished via the API feature
-    // query an API endpoint; API queries MDB; API sends data back to fill in
+    // Should still static-generate most of the page for speed and SEO; look into docs
+    // AND why is the API call running twice? Possibly because I'm in DEV mode.
 
-    const [trailsLoaded, setTrailsLoaded] = useState(false);
-    const [allTrailsData, setTrailsData] = useState('');
+    const [allTrailsData, setTrailsData] = useState(null);
 
     useEffect(() => {
-        fetch('/api/all-trails-non-prom')
+        fetch('/api/all-trails')
         .then((response) => {
-            console.log(response.status)
+            // console.log(response.status)
             return response.json();
         })
-        .then((trailsData) => {
-            console.log(trailsData);
-            setTrailsData(trailsData);
-            setTrailsLoaded(true);
+        .then((response) => {
+            // console.log(trailsData);
+            setTrailsData(response);
         });
     }, [])
 
@@ -47,7 +44,7 @@ export default function Home() {
                         <div className="mt-3"></div>
                         <h2>Get information on:</h2>
                         <ul className='locales-list'>
-                            { trailsLoaded 
+                            { allTrailsData 
                                 ? allTrailsData.map(({ id, name, difficulty }) => (
                                     <li key={id}>
                                         <Link href={`/locales/${id}`}>
@@ -57,11 +54,13 @@ export default function Home() {
                                         <DifIcon difficulty={difficulty} />
                                     </li>
                                 ))
-                                : <li>
-                                    <span>Loading...</span>
-                                    <br />
-                                    <span>Loading...</span>
-                                </li>
+                                : [...Array(3)].map((elem, index) => (
+                                    <li key={index}>
+                                        <span className='loading-placeholder loading-md'></span>
+                                        <br />
+                                        <span className='loading-placeholder loading-sm'></span>
+                                    </li>
+                                )) 
                             }
                         </ul>
                     </div>

@@ -3,6 +3,7 @@
 $green: #27ae60;
 $blue: #2980b9;
 $lt-gray: #eeeeee;
+$md-gray: #aaaaaa;
 $black: #111111;
 
 body {
@@ -64,8 +65,38 @@ ul.locales-list {
 }
 
 .trail-detail {
-    background-color: $lt-gray;
+    border: 1px solid $md-gray;
     border-radius: 1em;
     padding: .1em .5em .25em .5em;
     margin-left: .5em;
+}
+
+.loading-placeholder {
+    background-color: $lt-gray;
+    border-radius: 1em;
+    opacity: 1;
+    animation: loadfade infinite 1s linear;
+    display: inline-block;
+}
+
+.loading-md {
+    font-size: 1.25em;
+    width: 10em;
+    height: 1em;
+}
+
+.loading-sm {
+    width: 5em;
+    height: 1em;
+}    
+
+.loading-text {
+    width: 6em;
+    height: 1em;
+    margin: 0 0 -.25em .5em;
+}
+
+@keyframes loadfade {
+    0%, 100% { opacity: .5 }
+    50% { opacity: 1 }
 }
