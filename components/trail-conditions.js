@@ -28,8 +28,9 @@ export const processConditions = (conditions) => {
     return display[mostReported];
 }
 
-export default function ReportConditions({ pageID }) {
-    const [conditions, setConditions] = useState('not reported');
+export default function ReportConditions({ pageID, condSubmit, setCondSubmit }) {
+    const [conditions, setConditions] = useState('not selected');
+    // const [condSubmit, setCondSubmit] = useState('not-submitted');
 
     // console.log(`Props passed: ${pageID}`);
 
@@ -40,6 +41,8 @@ export default function ReportConditions({ pageID }) {
     }
 
     const handleClick = () => {
+        setCondSubmit('pending');
+        document.getElementById('select-conditions').setAttribute('disabled', 'disabled');
         fetch(`/api/trail-condition?localeId=${pageID}&condReport=${conditions}`,
         {
             method: 'POST'
@@ -49,8 +52,19 @@ export default function ReportConditions({ pageID }) {
             return response.json();
         })
         .then((response) => {
-            console.log(`Report response: ${JSON.stringify(response)}`);
-            // UP SOON: change or disable the button and give confirmation here
+            console.log(`Report recorded: ${response.modifiedCount}`);
+            if (response.modifiedCount === 1) {
+                setCondSubmit('submitted');
+                setTimeout(() => {
+                    document.getElementById('submitted-button').style.opacity = '.5';
+                }, 500)                  
+            } else {
+                setCondSubmit('failed');
+                setTimeout(() => {
+                    setCondSubmit('not-submitted');
+                    document.getElementById('select-conditions').removeAttribute('disabled');
+                }, 2500)
+            }
         });
     }
 
@@ -70,7 +84,25 @@ export default function ReportConditions({ pageID }) {
                 <option value="obstructed">Damaged or obstructed</option>
             </select>
             <br />
-            <button className="btn btn-primary" onClick={handleClick}>Submit</button>
+            {
+                condSubmit === 'not-submitted' &&
+                <button className="btn btn-primary btn-report" onClick={handleClick}>Submit</button>
+            }
+            {
+                condSubmit === 'pending' &&
+                <button className="btn btn-primary btn-report submit-pending"><i className="fa-solid fa-spinner fa-spin-pulse"></i></button>
+            }
+            {
+                condSubmit === 'submitted' &&
+                <button className="btn btn-success btn-report submitted" id="submitted-button"><i className="fa-solid fa-circle-check"></i></button>
+            }   
+            {
+                condSubmit === 'failed' &&
+                <div>
+                    <button className="btn btn-danger btn-report failed"><i className="fa-regular fa-circle-xmark"></i></button>
+                    <div className="small-warning">Something went wrong!</div>
+                </div>
+            }                        
         </div>
     )
 }

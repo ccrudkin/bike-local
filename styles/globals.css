@@ -104,5 +104,19 @@ ul.locales-list li {
     opacity: 1;
   }
 }
+.btn.btn-report {
+  width: 8em;
+}
+
+.btn.btn-report.submitted {
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+
+.small-warning {
+  font-size: 0.85em;
+  color: #b03a2e;
+}
 
 /*# sourceMappingURL=globals.css.map */

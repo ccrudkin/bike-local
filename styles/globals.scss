@@ -5,6 +5,7 @@ $blue: #2980b9;
 $lt-gray: #eeeeee;
 $md-gray: #aaaaaa;
 $black: #111111;
+$red: #b03a2e;
 
 body {
     min-height: 100vh;
@@ -107,4 +108,19 @@ ul.locales-list {
 @keyframes loadfade {
     0%, 100% { opacity: .5 }
     50% { opacity: 1 }
+}
+
+.btn.btn-report {
+    width: 8em;
+}
+
+.btn.btn-report.submitted {
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity .5s;
+}
+
+.small-warning {
+    font-size: .85em;
+    color: $red;
 }

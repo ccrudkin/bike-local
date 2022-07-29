@@ -29,7 +29,8 @@ export async function getStaticPaths() {
 }
 
 export default function LocaleInfo({ trailData }) {
-    // console.log(`Trail data from LocaleInfo: \n${JSON.stringify(trailData)}`);
+    // state lifted from <ReportConditions />
+    const [condSubmit, setCondSubmit] = useState('not-submitted');
 
     const [condition, setCondition] = useState(null);
     const router = useRouter();
@@ -46,7 +47,7 @@ export default function LocaleInfo({ trailData }) {
             // console.log(response);
             setCondition(response);
         });
-    }, [])    
+    }, [condSubmit])
 
     return (
         <Template>
@@ -71,7 +72,7 @@ export default function LocaleInfo({ trailData }) {
                             </p>
                             : <p><span className="loading-placeholder loading-text"></span></p>
                         }
-                        <ReportConditions pageID={localeId} />
+                        <ReportConditions pageID={localeId} condSubmit={condSubmit} setCondSubmit={setCondSubmit} />
                     </div>                    
                     <div className="col-sm-5">
                         <div className="map-container">
