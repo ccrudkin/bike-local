@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import Template from '../../components/template';
 import DifIcon from '../../components/dificons';
 import { getTrailDataDB, getTrailIDsDB } from '../../lib/all-locales';
+import RodeIt from '../../components/rode-it';
 import ReportConditions from '../../components/trail-conditions';
 import { processConditions } from '../../components/trail-conditions';
 
@@ -29,9 +30,11 @@ export async function getStaticPaths() {
 }
 
 export default function LocaleInfo({ trailData }) {
-    // state lifted from <ReportConditions />
+    // state lifted from <ReportConditions /> and <RodeIt />
+    const [rodeSubmit, setRodeSubmit] = useState('not-submitted');
     const [condSubmit, setCondSubmit] = useState('not-submitted');
 
+    const [riders, setRiders] = useState(null);
     const [condition, setCondition] = useState(null);
     const router = useRouter();
     const { localeId } = router.query;
@@ -44,10 +47,11 @@ export default function LocaleInfo({ trailData }) {
             return response.json();
         })
         .then((response) => {
-            // console.log(response);
-            setCondition(response);
+            console.log(`Ride reports reponse length: ${response.ridereports.length}`);
+            setCondition(response.conditions);
+            setRiders(response.ridereports.length)
         });
-    }, [condSubmit])
+    }, [condSubmit, rodeSubmit])
 
     return (
         <Template>
@@ -66,9 +70,14 @@ export default function LocaleInfo({ trailData }) {
                         <p>{trailData.description}</p>                           
                         <p>Difficulty: <span className="trail-detail"><DifIcon difficulty={trailData.difficulty} /></span></p>
                         <p>Trailhead: <span className="trail-detail">{trailData.latlong}</span></p>
+                        <RodeIt 
+                            rodeSubmit={rodeSubmit} 
+                            setRodeSubmit={setRodeSubmit} 
+                            riders={riders} 
+                            pageID={localeId} />
                         {condition
                             ? <p>Most riders say the trail is: 
-                                <span className="trail-detail">{processConditions(condition.conditions)}</span>
+                                <span className="trail-detail">{processConditions(condition)}</span>
                             </p>
                             : <p><span className="loading-placeholder loading-text"></span></p>
                         }

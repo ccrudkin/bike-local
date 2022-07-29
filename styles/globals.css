@@ -104,11 +104,12 @@ ul.locales-list li {
     opacity: 1;
   }
 }
-.btn.btn-report {
+.btn.btn-report, .btn.btn-rode-it {
   width: 8em;
 }
 
-.btn.btn-report.submitted {
+.btn.btn-report.submitted,
+.btn.btn-rode-it.submitted {
   opacity: 1;
   pointer-events: none;
   transition: opacity 0.5s;

@@ -48,11 +48,11 @@ export default function ReportConditions({ pageID, condSubmit, setCondSubmit }) 
             method: 'POST'
         })
         .then((response) => {
-            console.log(response.status)
+            // console.log(response.status)
             return response.json();
         })
         .then((response) => {
-            console.log(`Report recorded: ${response.modifiedCount}`);
+            // console.log(`Report recorded: ${response.modifiedCount}`);
             if (response.modifiedCount === 1) {
                 setCondSubmit('submitted');
                 setTimeout(() => {

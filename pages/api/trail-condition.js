@@ -25,7 +25,8 @@ export default async function handler(req, res) {
                     projection: {
                         _id: 0,
                         id: 1,
-                        conditions: 1
+                        conditions: 1,
+                        ridereports: 1
                     }
                 };
                 const locale = await locales.findOne(query, options);
