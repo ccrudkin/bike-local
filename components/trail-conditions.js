@@ -75,7 +75,7 @@ export default function ReportConditions({ pageID, condSubmit, setCondSubmit }) 
             <label htmlFor="select-conditions" className="conditions-label">Report current conditions:</label>
             <br />
             <select name="conditions-report" id="select-conditions" onChange={handleChange}>
-                <option value="">-- Choose conditions to report --</option>
+                <option value="">-- Choose conditions --</option>
                 <option value="dry">Dry</option>
                 <option value="dry-dusty">Dry and dusty</option>
                 <option value="heavy-snow">Heavy snow and ice</option>

@@ -42,9 +42,10 @@ footer {
   color: #111111;
 }
 
-.map-container {
-  max-width: 20em;
-  margin: auto;
+.all-trails-details {
+  font-size: 0.8em;
+  color: #666666;
+  margin-right: 1em;
 }
 
 ul.locales-list {
@@ -52,8 +53,13 @@ ul.locales-list {
   margin: 1em 0em;
 }
 ul.locales-list li {
-  font-size: 1.25em;
+  font-size: 1.5em;
   margin-bottom: 1em;
+}
+
+.map-container {
+  max-width: 20em;
+  margin: auto;
 }
 
 .trail-detail {
@@ -62,6 +68,30 @@ ul.locales-list li {
   padding: 0.1em 0.5em 0.25em 0.5em;
   margin-left: 0.5em;
   white-space: nowrap;
+}
+
+.conditions-label {
+  margin-bottom: 0.5em;
+}
+
+#select-conditions {
+  margin-bottom: 1em;
+}
+
+.btn.btn-report, .btn.btn-rode-it {
+  width: 8em;
+}
+
+.btn.btn-report.submitted,
+.btn.btn-rode-it.submitted {
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+
+.small-warning {
+  font-size: 0.85em;
+  color: #b03a2e;
 }
 
 .loading-placeholder {
@@ -88,14 +118,6 @@ ul.locales-list li {
   height: 1em;
 }
 
-.conditions-label {
-  margin-bottom: 0.5em;
-}
-
-#select-conditions {
-  margin-bottom: 1em;
-}
-
 @keyframes loadfade {
   0%, 100% {
     opacity: 0.5;
@@ -103,21 +125,6 @@ ul.locales-list li {
   50% {
     opacity: 1;
   }
-}
-.btn.btn-report, .btn.btn-rode-it {
-  width: 8em;
-}
-
-.btn.btn-report.submitted,
-.btn.btn-rode-it.submitted {
-  opacity: 1;
-  pointer-events: none;
-  transition: opacity 0.5s;
-}
-
-.small-warning {
-  font-size: 0.85em;
-  color: #b03a2e;
 }
 
 /*# sourceMappingURL=globals.css.map */

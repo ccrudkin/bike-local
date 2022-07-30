@@ -30,7 +30,7 @@ export default function Home() {
             return response.json();
         })
         .then((response) => {
-            // console.log(trailsData);
+            console.log(response);
             setTrailsData(response);
         });
     }, [])
@@ -45,13 +45,15 @@ export default function Home() {
                         <h2>Get information on:</h2>
                         <ul className='locales-list'>
                             { allTrailsData 
-                                ? allTrailsData.map(({ id, name, difficulty }) => (
+                                ? allTrailsData.map(({ id, name, difficulty, distance, elevation }) => (
                                     <li key={id}>
                                         <Link href={`/locales/${id}`}>
                                             {name}                                            
                                         </Link>
                                         <br />
-                                        <DifIcon difficulty={difficulty} />
+                                        <span className="all-trails-details">
+                                            {distance} / {elevation} <i className="fa-solid fa-arrow-up"></i>
+                                        </span> <DifIcon difficulty={difficulty} />
                                     </li>
                                 ))
                                 : [...Array(3)].map((elem, index) => (

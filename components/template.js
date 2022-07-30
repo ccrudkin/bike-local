@@ -20,7 +20,7 @@ export default function Template({ children, home }) {
                     {home ? (
                         <div className="site-header home">
                             <h1>Bike Casper</h1>
-                            <p>Find info about local riding areas.</p>
+                            <p>Find info about local riding near Casper, Wyoming.</p>
                         </div>
                     ) : (
                         <div className='site-header not-home'>

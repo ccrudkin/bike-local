@@ -95,7 +95,7 @@ export default function LocaleInfo({ trailData }) {
                         </div>
                     </div>
                 </div>
-                <div className="row mt-3 mb-3">
+                <div className="row mt-5 mb-3">
                     <div className="col-md-12">
                         <p>
                             <Link href='/'>

@@ -1,12 +1,16 @@
 // global css goes here
 
+// variables
 $green: #27ae60;
 $blue: #2980b9;
 $lt-gray: #eeeeee;
 $md-gray: #aaaaaa;
+$dk-gray: #666666;
 $black: #111111;
 $red: #b03a2e;
 
+
+// elements and frame
 body {
     min-height: 100vh;
 }
@@ -39,6 +43,8 @@ footer {
     justify-content: space-between;
 }
 
+// icons
+
 .green-circle {
     color: $green;
 }
@@ -51,18 +57,28 @@ footer {
     color: $black;
 }
 
-.map-container {
-    max-width: 20em;
-    margin: auto;
+// index only; separate out
+
+.all-trails-details {
+    font-size: .8em;
+    color: $dk-gray;
+    margin-right: 1em;
 }
 
 ul.locales-list {
     list-style: none;
     margin: 1em 0em;
     li {
-        font-size: 1.25em;
+        font-size: 1.5em;
         margin-bottom: 1em;
     }
+}
+
+// locale pages only; separate out
+
+.map-container {
+    max-width: 20em;
+    margin: auto;
 }
 
 .trail-detail {
@@ -72,6 +88,32 @@ ul.locales-list {
     margin-left: .5em;
     white-space: nowrap;
 }
+
+.conditions-label {
+    margin-bottom: .5em;
+}
+
+#select-conditions {
+    margin-bottom: 1em;
+}
+
+.btn.btn-report, .btn.btn-rode-it {
+    width: 8em;
+}
+
+.btn.btn-report.submitted,
+.btn.btn-rode-it.submitted {
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity .5s;
+}
+
+.small-warning {
+    font-size: .85em;
+    color: $red;
+}
+
+// loading assets
 
 .loading-placeholder {
     background-color: $lt-gray;
@@ -97,31 +139,7 @@ ul.locales-list {
     height: 1em;
 }
 
-.conditions-label {
-    margin-bottom: .5em;
-}
-
-#select-conditions {
-    margin-bottom: 1em;
-}
-
 @keyframes loadfade {
     0%, 100% { opacity: .5 }
     50% { opacity: 1 }
-}
-
-.btn.btn-report, .btn.btn-rode-it {
-    width: 8em;
-}
-
-.btn.btn-report.submitted,
-.btn.btn-rode-it.submitted {
-    opacity: 1;
-    pointer-events: none;
-    transition: opacity .5s;
-}
-
-.small-warning {
-    font-size: .85em;
-    color: $red;
 }

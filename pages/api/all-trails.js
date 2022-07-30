@@ -23,7 +23,9 @@ export default async function handler(req, res) {
                         _id: 0,
                         id: 1,
                         name: 1,
-                        difficulty: 1
+                        difficulty: 1,
+                        distance: 1,
+                        elevation: 1
                     }
                 };
                 const cursor = locales.find(query, options);
