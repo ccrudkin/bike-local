@@ -1,3 +1,11 @@
+// override and import bootstrap
+$primary:       #1f618d;
+$secondary:     #b9770e;
+$link-decoration: none;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
 // global css goes here
 
 // variables
@@ -8,7 +16,8 @@ $md-gray: #aaaaaa;
 $dk-gray: #666666;
 $black: #111111;
 $red: #b03a2e;
-
+// $primary: #283747;
+// $secondary-lt: #f39c12;
 
 // elements and frame
 body {
@@ -20,9 +29,9 @@ header {
     background-color: #333333;
     padding: 1em 3em;
     margin-bottom: 3em;
+    font-size: 1.25em;
     a {
         color: #eeeeee;
-        text-decoration: none;
         &:hover {
             color: #eeeeee;
         }
@@ -36,11 +45,30 @@ footer {
     margin-top: 3em;    
 }
 
-.outer {
-    min-height: 100vh;
+.site-header.home {
+    h1 {
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
+
+.site-header .header-nav {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
+    align-items: center;
+    a:hover {
+        color: $secondary;
+    }
+}
+
+
+// global styles
+
+a {
+    color: $primary;
+    &:hover {
+        color: $secondary;
+    }
 }
 
 // icons

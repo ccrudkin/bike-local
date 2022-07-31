@@ -30,3 +30,7 @@ Build phase, primarily focused on functionality and back end work.
 ### Phase 2
 \[ \] Interactive map  
 \[ \] Cookies for I Rode It! and condition report (once/day)  
+
+## Resources
+
+[https://openmaptiles.org/](https://openmaptiles.org/)

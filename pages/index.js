@@ -42,7 +42,7 @@ export default function Home() {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="mt-3"></div>
-                        <h2>Get information on:</h2>
+                        <h2>Casper-area Trails</h2>
                         <ul className='locales-list'>
                             { allTrailsData 
                                 ? allTrailsData.map(({ id, name, difficulty, distance, elevation }) => (
