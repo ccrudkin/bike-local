@@ -33,4 +33,4 @@ Build phase, primarily focused on functionality and back end work.
 
 ## Resources
 
-[https://openmaptiles.org/](https://openmaptiles.org/)
+[https://openmaptiles.org/](https://openmaptiles.org/)  

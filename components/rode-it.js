@@ -7,7 +7,7 @@ export default function RodeIt({ rodeSubmit, setRodeSubmit, riders, pageID }) {
             method: 'POST'
         })
         .then((response) => {
-            // console.log(response.status)
+            // console.log(response.status);
             return response.json();
         })
         .then((response) => {

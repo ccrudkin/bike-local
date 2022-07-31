@@ -106,7 +106,7 @@ export default function LocaleInfo({ trailData }) {
                 <div className="row mt-5 mb-3">
                     <div className="col-md-12">
                         <p>
-                            <Link href='/'>
+                            <Link href="/">
                                 <a><i className="fa-solid fa-circle-arrow-left"></i> Back to all trails</a>
                             </Link>
                         </p>
