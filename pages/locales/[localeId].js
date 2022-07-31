@@ -67,21 +67,12 @@ export default function LocaleInfo({ trailData }) {
                 </div>
                 <div className="row">
                     <div className="col-sm-7">
-                        <p>{trailData.description}</p>                           
-                        <p>Difficulty: <span className="trail-detail"><DifIcon difficulty={trailData.difficulty} /></span></p>
-                        <p>Trailhead: <span className="trail-detail">{trailData.latlong}</span></p>
-                        <RodeIt 
-                            rodeSubmit={rodeSubmit} 
-                            setRodeSubmit={setRodeSubmit} 
-                            riders={riders} 
-                            pageID={localeId} />
-                        {condition
-                            ? <p>Most riders say the trail is: 
-                                <span className="trail-detail">{processConditions(condition)}</span>
-                            </p>
-                            : <p><span className="loading-placeholder loading-text"></span></p>
-                        }
-                        <ReportConditions pageID={localeId} condSubmit={condSubmit} setCondSubmit={setCondSubmit} />
+                        <p>{trailData.description}</p>
+                        <p><strong>Distance:</strong> <span className="trail-detail">{trailData.distance}</span></p>
+                        <p><strong>Elevation gain:</strong> <span className="trail-detail">{trailData.elevation}</span></p>
+                        <p><strong>Difficulty:</strong> <span className="trail-detail"><DifIcon difficulty={trailData.difficulty} /></span></p>
+                        <p><strong>Trailhead:</strong> <span className="trail-detail">{trailData.latlong}</span></p>
+                        <p><strong><i className="fa-solid fa-circle-info"></i> Other notes:</strong><br />{trailData.notes}</p>
                     </div>                    
                     <div className="col-sm-5">
                         <div className="map-container">
@@ -93,6 +84,23 @@ export default function LocaleInfo({ trailData }) {
                                 alt={`Map of ${trailData.name} trail.`}
                             />
                         </div>
+                    </div>
+                </div>
+                <div className="row mt-3">
+                    <div className="col-md-12">
+                        <h3>Reports and Conditions</h3>
+                        <RodeIt 
+                            rodeSubmit={rodeSubmit} 
+                            setRodeSubmit={setRodeSubmit} 
+                            riders={riders} 
+                            pageID={localeId} />                                            
+                        {condition
+                            ? <p>Most riders say conditions are: 
+                                <span className="trail-detail">{processConditions(condition)}</span>
+                            </p>
+                            : <p><span className="loading-placeholder loading-text"></span></p>
+                        }                        
+                        <ReportConditions pageID={localeId} condSubmit={condSubmit} setCondSubmit={setCondSubmit} />                            
                     </div>
                 </div>
                 <div className="row mt-5 mb-3">

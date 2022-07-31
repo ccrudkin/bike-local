@@ -9,13 +9,13 @@ Build phase, primarily focused on functionality and back end work.
 ## Features to add
 
 ### Phase 1
-\[ \] Styling (please take away the ugly)  
-\[ \] Break CSS into page/component specific stylesheets  
+\[-\] Styling (please take away the ugly)  
+\[-\] Break CSS into page/component specific stylesheets  
 \[ \] Increase separation of concerns; further reduce components  
-\[ \] Layout optimization for all breakpoints  
+\[-\] Layout optimization for all breakpoints  
 \[ \] Favicon  
-\[ \] Useful header and footer content  
-\[ \] Distance and elevation on trail pages  
+\[-\] Useful header and footer content  
+\[x\] Distance and elevation on trail pages  
 \[ \] Amenities and icons (add to database and pages)
 \[ \] Outbound link to trailhead location (Google maps, other option?)  
 \[ \] Outbound link to route map  

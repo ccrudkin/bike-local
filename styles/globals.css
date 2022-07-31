@@ -11845,15 +11845,16 @@ ul.locales-list li {
 }
 
 .map-container {
-  max-width: 20em;
+  max-width: 25em;
   margin: auto;
 }
 
 .trail-detail {
-  border: 1px solid #aaaaaa;
+  border: 1px solid #1f618d;
   border-radius: 1em;
   padding: 0.1em 0.5em 0.25em 0.5em;
   margin-left: 0.5em;
+  margin-top: 0.25em;
   white-space: nowrap;
 }
 
@@ -11874,6 +11875,12 @@ ul.locales-list li {
   opacity: 1;
   pointer-events: none;
   transition: opacity 0.5s;
+}
+
+.rode-number {
+  color: #b9770e;
+  font-weight: 700;
+  border-bottom: 2px solid #1f618d;
 }
 
 .small-warning {
@@ -11911,6 +11918,32 @@ ul.locales-list li {
   }
   50% {
     opacity: 1;
+  }
+}
+@media screen and (max-width: 575px) {
+  header {
+    padding: 1em;
+    margin-bottom: 2em;
+  }
+  header .site-header.not-home h2, header .site-header.not-home .h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.75em;
+  }
+  header .site-header.home p {
+    font-size: 0.85em;
+  }
+
+  footer {
+    padding: 1em 1.5em;
+  }
+
+  .site-header .header-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .map-container {
+    margin: 1.5em auto;
   }
 }
 

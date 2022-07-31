@@ -105,15 +105,16 @@ ul.locales-list {
 // locale pages only; separate out
 
 .map-container {
-    max-width: 20em;
+    max-width: 25em;
     margin: auto;
 }
 
 .trail-detail {
-    border: 1px solid $md-gray;
+    border: 1px solid $primary;
     border-radius: 1em;
     padding: .1em .5em .25em .5em;
     margin-left: .5em;
+    margin-top: .25em;
     white-space: nowrap;
 }
 
@@ -134,6 +135,12 @@ ul.locales-list {
     opacity: 1;
     pointer-events: none;
     transition: opacity .5s;
+}
+
+.rode-number {
+    color: $secondary;
+    font-weight: 700;
+    border-bottom: 2px solid $primary;
 }
 
 .small-warning {
@@ -170,4 +177,32 @@ ul.locales-list {
 @keyframes loadfade {
     0%, 100% { opacity: .5 }
     50% { opacity: 1 }
+}
+
+@media screen and (max-width: 575px) {
+    header {
+        .site-header.not-home {
+            h2 {
+                font-size: 1.5em;
+                margin-bottom: .75em;
+            }
+        }
+        .site-header.home {
+            p {
+                font-size: .85em;
+            }
+        }
+        padding: 1em;
+        margin-bottom: 2em;
+    }
+    footer {
+        padding: 1em 1.5em;
+    }
+    .site-header .header-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }    
+    .map-container {
+        margin: 1.5em auto;
+    }
 }
