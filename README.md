@@ -10,23 +10,24 @@ Build phase, primarily focused on functionality and back end work.
 
 ### Phase 1
 \[-\] Styling (please take away the ugly)  
-\[x\] Homepage photo
+\[x\] Homepage photo  
 \[-\] Break CSS into page/component specific stylesheets  
-\[ \] Increase separation of concerns; further reduce components  
 \[-\] Layout optimization for all breakpoints  
-\[ \] Favicon  
 \[-\] Useful header and footer content  
 \[x\] Distance and elevation on trail pages  
-\[ \] Amenities and icons (add to database and pages)
-\[ \] Outbound link to trailhead location (Google maps, other option?)*  
-\[ \] Outbound link to route map  
-\[ \] Current weather / forecast (NOAA API)  
-\[ \] Additional trails (Duncan Ranch, Muddy Mountain, Crossroads)  
+\[x\] Current weather / forecast (NOAA API)  
+\[-\] Style weather forecast  
 \[ \] Add sophistication for recent reports algorithm (report expir., etc.)  
 \[ \] Add special alert for damaged or obstructed reports (with overwriting rules)  
 \[ \] Add expir. for I Rode It! after 30 days  
+\[ \] Outbound link to trailhead location (Google maps, other option?)*  
+\[ \] Outbound link to route map  
+\[ \] Additional trails (Duncan Ranch, Muddy Mountain, Crossroads)  
 \[ \] Static generate all appropriate pages; load common updates after  
-\[ \] Deploy test
+\[ \] Increase separation of concerns; further reduce components  
+\[ \] Amenities and icons (add to database and pages)  
+\[ \] Favicon  
+\[ \] Deploy test  
 
 ### Phase 2
 \[ \] Interactive map  
@@ -35,5 +36,3 @@ Build phase, primarily focused on functionality and back end work.
 ## Resources
 
 [https://openmaptiles.org/](https://openmaptiles.org/)  
-
-https://api.weather.gov/points/42.737915,-106.316638

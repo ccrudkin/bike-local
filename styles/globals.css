@@ -11913,7 +11913,7 @@ ul.locales-list li {
   display: inline-block;
 }
 
-.locales-list .loading-placeholder {
+.loading-placeholder.dk-load {
   background-color: #cccccc;
 }
 
@@ -11932,6 +11932,13 @@ ul.locales-list li {
   width: 50%;
   min-width: 10em;
   height: 1em;
+}
+
+.weather-day {
+  padding: 0.5em 1em;
+  background-color: #eeeeee;
+  border-radius: 0.5em;
+  height: 100%;
 }
 
 @keyframes loadfade {

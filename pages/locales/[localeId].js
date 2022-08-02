@@ -9,6 +9,7 @@ import { getTrailDataDB, getTrailIDsDB } from '../../lib/all-locales';
 import RodeIt from '../../components/rode-it';
 import ReportConditions from '../../components/trail-conditions';
 import { processConditions } from '../../components/trail-conditions';
+import TrailWeather from '../../components/weather';
 
 export async function getStaticProps({ params }) {
     let trailData = await getTrailDataDB(params.localeId);
@@ -65,7 +66,7 @@ export default function LocaleInfo({ trailData }) {
                         <h1>{trailData.name}</h1>             
                     </div>
                 </div>
-                <div className="row">
+                <div className="row mb-4">
                     <div className="col-sm-7">
                         <p>{trailData.description}</p>
 
@@ -98,9 +99,10 @@ export default function LocaleInfo({ trailData }) {
                         </div>
                     </div>
                 </div>
+                <TrailWeather latlong={trailData.latlong} />
                 <div className="row mt-3">
                     <div className="col-md-12">
-                        <h3>Trail Conditions</h3>                                           
+                        <h3>Trail Conditions</h3>      
                         {condition
                             ? <p>Most riders say conditions are: 
                                 <span className="trail-detail">{processConditions(condition)}</span>

@@ -177,10 +177,8 @@ ul.locales-list {
     display: inline-block;
 }
 
-.locales-list {
-    .loading-placeholder {
-        background-color: $md-lt-gray;
-    }
+.loading-placeholder.dk-load {
+    background-color: $md-lt-gray;
 }
 
 .loading-md {
@@ -198,6 +196,13 @@ ul.locales-list {
     width: 50%;
     min-width: 10em;
     height: 1em;
+}
+
+.weather-day {
+    padding: .5em  1em;
+    background-color: $lt-gray;
+    border-radius: .5em;
+    height: 100%;
 }
 
 @keyframes loadfade {

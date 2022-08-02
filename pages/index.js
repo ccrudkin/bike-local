@@ -30,7 +30,7 @@ export default function Home() {
             return response.json();
         })
         .then((response) => {
-            console.log(response);
+            // console.log(response);
             setTrailsData(response);
         });
     }, [])
@@ -60,9 +60,9 @@ export default function Home() {
                                         ))
                                         : [...Array(3)].map((elem, index) => (
                                             <li key={index}>
-                                                <span className='loading-placeholder loading-md'></span>
+                                                <span className='loading-placeholder dk-load loading-md'></span>
                                                 <br />
-                                                <span className='loading-placeholder loading-sm'></span>
+                                                <span className='loading-placeholder dk-load loading-sm'></span>
                                             </li>
                                         )) 
                                     }
