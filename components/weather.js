@@ -57,7 +57,7 @@ export default function TrailWeather({ latlong }) {
                     windDirection, 
                     shortForecast 
                 }, index) => (
-                    <div key={index} className="col-sm-3">
+                    <div key={index} className="col-sm-3 mt-2">
                         <div className="weather-day">
                             <p>
                                 <strong>{name}</strong>
@@ -74,7 +74,7 @@ export default function TrailWeather({ latlong }) {
                     <div key={index} className="col-sm-3">
                         <span className='loading-placeholder loading-text'></span>
                         <br />
-                        <span className='loading-placeholder loading-sm'></span>
+                        <span className='loading-placeholder loading-md'></span>
                         <br />
                         <span className='loading-placeholder loading-text'></span>
                         <br />
