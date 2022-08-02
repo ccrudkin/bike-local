@@ -24,7 +24,7 @@ export default function RodeIt({ rodeSubmit, setRodeSubmit, riders, pageID }) {
     }
     
     return (
-        <div className="mt-4 mb-4">
+        <div className="mb-5 mb-sm-3">
             {
                 rodeSubmit === 'not-submitted' && 
                 <button className="btn btn-primary btn-rode-it" onClick={handleClick}>I Rode It!</button>

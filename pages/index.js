@@ -38,35 +38,39 @@ export default function Home() {
     return (
         <Template home>
             <Head />
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="mt-3"></div>
-                        <h2>Casper-area Trails</h2>
-                        <ul className='locales-list'>
-                            { allTrailsData 
-                                ? allTrailsData.map(({ id, name, difficulty, distance, elevation }) => (
-                                    <li key={id}>
-                                        <Link href={`/locales/${id}`}>
-                                            {name}                                            
-                                        </Link>
-                                        <br />
-                                        <span className="all-trails-details">
-                                            {distance} / {elevation} <i className="fa-solid fa-arrow-up"></i>
-                                        </span> <DifIcon difficulty={difficulty} />
-                                    </li>
-                                ))
-                                : [...Array(3)].map((elem, index) => (
-                                    <li key={index}>
-                                        <span className='loading-placeholder loading-md'></span>
-                                        <br />
-                                        <span className='loading-placeholder loading-sm'></span>
-                                    </li>
-                                )) 
-                            }
-                        </ul>
-                    </div>
-                </div>                
+            <div className="home-container">
+                <div className="container">
+                    <div className="row justify-content-end">
+                        <div className="col-md-8 col-lg-7">
+                            <div className="mt-3"></div>
+                            <div className="locales-list-container">
+                                <h2>Trails</h2>
+                                <ul className='locales-list'>
+                                    { allTrailsData 
+                                        ? allTrailsData.map(({ id, name, difficulty, distance, elevation }) => (
+                                            <li key={id}>
+                                                <Link href={`/locales/${id}`}>
+                                                    {name}                                            
+                                                </Link>
+                                                <br />
+                                                <span className="all-trails-details">
+                                                    {distance} / {elevation} <i className="fa-solid fa-arrow-up"></i>
+                                                </span> <DifIcon difficulty={difficulty} />
+                                            </li>
+                                        ))
+                                        : [...Array(3)].map((elem, index) => (
+                                            <li key={index}>
+                                                <span className='loading-placeholder loading-md'></span>
+                                                <br />
+                                                <span className='loading-placeholder loading-sm'></span>
+                                            </li>
+                                        )) 
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>                
+                </div>
             </div>
         </Template>
     )

@@ -10,6 +10,7 @@ Build phase, primarily focused on functionality and back end work.
 
 ### Phase 1
 \[-\] Styling (please take away the ugly)  
+\[x\] Homepage photo
 \[-\] Break CSS into page/component specific stylesheets  
 \[ \] Increase separation of concerns; further reduce components  
 \[-\] Layout optimization for all breakpoints  
@@ -17,7 +18,7 @@ Build phase, primarily focused on functionality and back end work.
 \[-\] Useful header and footer content  
 \[x\] Distance and elevation on trail pages  
 \[ \] Amenities and icons (add to database and pages)
-\[ \] Outbound link to trailhead location (Google maps, other option?)  
+\[ \] Outbound link to trailhead location (Google maps, other option?)*  
 \[ \] Outbound link to route map  
 \[ \] Current weather / forecast (NOAA API)  
 \[ \] Additional trails (Duncan Ranch, Muddy Mountain, Crossroads)  

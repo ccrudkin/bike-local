@@ -12,6 +12,7 @@ $link-decoration: none;
 $green: #27ae60;
 $blue: #2980b9;
 $lt-gray: #eeeeee;
+$md-lt-gray: #cccccc;
 $md-gray: #aaaaaa;
 $dk-gray: #666666;
 $black: #111111;
@@ -28,7 +29,6 @@ header {
     color: #eeeeee;
     background-color: #333333;
     padding: 1em 3em;
-    margin-bottom: 3em;
     font-size: 1.25em;
     a {
         color: #eeeeee;
@@ -102,6 +102,24 @@ ul.locales-list {
     }
 }
 
+.home-container {
+    padding: 8em 0em;
+    background-image: url('../public/sqaw-creek-green-prairie-1920x960.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 960px;
+}
+
+.locales-list-container {
+    background-color: $lt-gray;
+    padding: 2em;
+    border-radius: .5em;
+    h2 {
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
+
 // locale pages only; separate out
 
 .map-container {
@@ -158,6 +176,12 @@ ul.locales-list {
     display: inline-block;
 }
 
+.locales-list {
+    .loading-placeholder {
+        background-color: $md-lt-gray;
+    }
+}
+
 .loading-md {
     font-size: 1.25em;
     width: 10em;
@@ -170,7 +194,8 @@ ul.locales-list {
 }
 
 .loading-text {
-    width: 80%;
+    width: 50%;
+    min-width: 10em;
     height: 1em;
 }
 
@@ -195,7 +220,6 @@ ul.locales-list {
             }
         }
         padding: 1em;
-        margin-bottom: 2em;
     }
     footer {
         padding: 1em 1.5em;
@@ -206,5 +230,11 @@ ul.locales-list {
     }    
     .map-container {
         margin: 1.5em auto;
+    }
+    .home-container {
+        padding-top: 50vw;
+    }
+    .locales-list-container {
+        padding: 1em;
     }
 }
