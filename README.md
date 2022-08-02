@@ -35,3 +35,5 @@ Build phase, primarily focused on functionality and back end work.
 ## Resources
 
 [https://openmaptiles.org/](https://openmaptiles.org/)  
+
+https://api.weather.gov/points/42.737915,-106.316638

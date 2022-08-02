@@ -40,7 +40,7 @@ export default function Home() {
             <Head />
             <div className="home-container">
                 <div className="container">
-                    <div className="row justify-content-end">
+                    <div className="row">
                         <div className="col-md-8 col-lg-7">
                             <div className="mt-3"></div>
                             <div className="locales-list-container">

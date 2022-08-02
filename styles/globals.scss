@@ -104,7 +104,8 @@ ul.locales-list {
 
 .home-container {
     padding: 8em 0em;
-    background-image: url('../public/sqaw-creek-green-prairie-1920x960.jpg');
+    // vvv img should be 1920x960 vvv
+    background-image: url('../public/eadsville-looky-1920x960.jpg');
     background-size: contain;
     background-repeat: no-repeat;
     min-height: 960px;
@@ -233,6 +234,8 @@ ul.locales-list {
     }
     .home-container {
         padding-top: 50vw;
+        padding-bottom: 4em;
+        min-height: 0px;
     }
     .locales-list-container {
         padding: 1em;
