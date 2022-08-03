@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Template from '../../components/template';
 import DifIcon from '../../components/dificons';
@@ -10,6 +9,7 @@ import RodeIt from '../../components/rode-it';
 import ReportConditions from '../../components/trail-conditions';
 import { processConditions } from '../../components/trail-conditions';
 import TrailWeather from '../../components/weather';
+import Map from '../../components/trailforks-map';
 
 export async function getStaticProps({ params }) {
     let trailData = await getTrailDataDB(params.localeId);
@@ -48,7 +48,7 @@ export default function LocaleInfo({ trailData }) {
             return response.json();
         })
         .then((response) => {
-            console.log(`Ride reports reponse length: ${response.ridereports.length}`);
+            // console.log(`Ride reports reponse length: ${response.ridereports.length}`);
             setCondition(response.conditions);
             setRiders(response.ridereports.length)
         });
@@ -67,7 +67,7 @@ export default function LocaleInfo({ trailData }) {
                     </div>
                 </div>
                 <div className="row mb-4">
-                    <div className="col-sm-7">
+                    <div className="col-sm-6">
                         <p>{trailData.description}</p>
 
                         <div className="row mt-4 mt-sm-5">
@@ -75,7 +75,6 @@ export default function LocaleInfo({ trailData }) {
                                 <p><strong>Distance:</strong> <span className="trail-detail">{trailData.distance}</span></p>
                                 <p><strong>Elevation gain:</strong> <span className="trail-detail">{trailData.elevation}</span></p>
                                 <p><strong>Difficulty:</strong> <span className="trail-detail"><DifIcon difficulty={trailData.difficulty} /></span></p>
-                                <p><strong>Trailhead:</strong> <span className="trail-detail">{trailData.latlong}</span></p>
                                 <p><strong><i className="fa-solid fa-circle-info"></i> Other notes:</strong><br />{trailData.notes}</p>
                             </div>
                             <div className="col-sm-5 order-1 order-sm-2">
@@ -87,15 +86,9 @@ export default function LocaleInfo({ trailData }) {
                             </div>
                         </div>
                     </div>                    
-                    <div className="col-sm-5">
-                        <div className="map-container">
-                            <Image 
-                                src={`/${trailData.map}`}
-                                layout="responsive"
-                                width={1000}
-                                height={1000}
-                                alt={`Map of ${trailData.name} trail.`}
-                            />
+                    <div className="col-sm-6">
+                        <div className="map-container" id="map">
+                            <Map latlong={trailData.latlong} />
                         </div>
                     </div>
                 </div>

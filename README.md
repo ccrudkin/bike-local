@@ -22,7 +22,7 @@ Build phase, primarily focused on functionality and back end work.
 \[ \] Add expir. for I Rode It! after 30 days  
 \[ \] Outbound link to trailhead location (Google maps, other option?)*  
 \[ \] Outbound link to route map  
-\[ \] Additional trails (Duncan Ranch, Muddy Mountain, Crossroads)  
+\[ \] Add trails (Duncan Ranch, Muddy Mountain, Crossroads, Lamberson, Hogadon)  
 \[ \] Static generate all appropriate pages; load common updates after  
 \[ \] Increase separation of concerns; further reduce components  
 \[ \] Amenities and icons (add to database and pages)  
