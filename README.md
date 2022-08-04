@@ -1,7 +1,7 @@
 # Bike Local 
 
 ## Ride Local Trails
-This app initially targets the Casper, Wyoming, area, but is built to be scalable. It's meant to host basic trail information (location, maps, conditions, difficulty, amenities) with no account needed or other barriers to entry.
+This app initially targets the Casper, Wyoming, area, but is built to be scalable. It's meant to host basic trail information (location, maps, conditions, difficulty, amenities) with no account needed or other barriers to access.
 
 ## Status
 Build phase, primarily focused on functionality and back end work.
@@ -20,19 +20,20 @@ Build phase, primarily focused on functionality and back end work.
 \[ \] Add sophistication for recent reports algorithm (report expir., etc.)  
 \[ \] Add special alert for damaged or obstructed reports (with overwriting rules)  
 \[ \] Add expir. for I Rode It! after 30 days  
-\[ \] Outbound link to trailhead location (Google maps, other option?)*  
-\[ \] Outbound link to route map  
-\[ \] Add trails (Duncan Ranch, Muddy Mountain, Crossroads, Lamberson, Hogadon)  
+\[ \] Add trails (Duncan Ranch, Lamberson, Hogadon)  
 \[ \] Static generate all appropriate pages; load common updates after  
 \[ \] Increase separation of concerns; further reduce components  
 \[ \] Amenities and icons (add to database and pages)  
+\[ \] Sort trails (alpha?)
 \[ \] Favicon  
 \[ \] Deploy test  
 
 ### Phase 2
-\[ \] Interactive map  
+\[-\] Interactive map  
 \[ \] Cookies for I Rode It! and condition report (once/day)  
+\[ \] Add editor interface for adding new trails
 
 ## Resources
 
-[https://openmaptiles.org/](https://openmaptiles.org/)  
+* [https://openmaptiles.org/](https://openmaptiles.org/)
+* [Hack to recreate and reload scripts upon nav](https://github.com/vercel/next.js/discussions/17919#discussioncomment-3149719)

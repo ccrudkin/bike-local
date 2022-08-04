@@ -50,8 +50,9 @@ export default function LocaleInfo({ trailData }) {
         .then((response) => {
             // console.log(`Ride reports reponse length: ${response.ridereports.length}`);
             setCondition(response.conditions);
-            setRiders(response.ridereports.length)
+            setRiders(response.ridereports.length);
         });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [condSubmit, rodeSubmit])
 
     return (
@@ -74,7 +75,7 @@ export default function LocaleInfo({ trailData }) {
                             <div className="col-sm-7 order-2 order-sm-1">
                                 <p><strong>Distance:</strong> <span className="trail-detail">{trailData.distance}</span></p>
                                 <p><strong>Elevation gain:</strong> <span className="trail-detail">{trailData.elevation}</span></p>
-                                <p><strong>Difficulty:</strong> <span className="trail-detail"><DifIcon difficulty={trailData.difficulty} /></span></p>
+                                <p><strong>Difficulty:</strong> <span className="ms-2 fs-5"><DifIcon difficulty={trailData.difficulty} /></span></p>
                                 <p><strong><i className="fa-solid fa-circle-info"></i> Other notes:</strong><br />{trailData.notes}</p>
                             </div>
                             <div className="col-sm-5 order-1 order-sm-2">
@@ -97,7 +98,7 @@ export default function LocaleInfo({ trailData }) {
                     <div className="col-md-12">
                         <h3>Trail Conditions</h3>      
                         {condition
-                            ? <p>Most riders say conditions are: 
+                            ? <p>Most recent reports say: 
                                 <span className="trail-detail">{processConditions(condition)}</span>
                             </p>
                             : <p><span className="loading-placeholder loading-text"></span></p>

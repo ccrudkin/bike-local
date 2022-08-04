@@ -6,14 +6,15 @@ export const processConditions = (conditions) => {
     // or a special alert for obsructed or damaged trail reports until overwritten by newer report (!)
     // and when reports are matched in number, newer reports take precedence
     let mostReports = 0;
-    let mostReported = 'not reported';
+    let mostReported = 'nodata';
     let display = {
         "dry": "dry",
         "dry-dusty": "dry and dusty",
         "heavy-snow": "heavy snow and ice",
         "light-snow": "light snow in spots",
         "muddy": "wet and muddy",
-        "obstructed": "damaged or obstructed",        
+        "obstructed": "damaged or obstructed",
+        "nodata": "nodata"
     }
 
     // console.log(`This trail is: ${trails[i].id}`);
@@ -25,7 +26,8 @@ export const processConditions = (conditions) => {
             mostReported = cond;
         }
     }
-    return display[mostReported];
+    return mostReported === 'nodata' ? 'no recent reports'
+        : display[mostReported]
 }
 
 export default function ReportConditions({ pageID, condSubmit, setCondSubmit }) {

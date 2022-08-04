@@ -46,7 +46,7 @@ export default function RodeIt({ rodeSubmit, setRodeSubmit, riders, pageID }) {
             }
             <div className="mt-2"></div>
             {
-                riders
+                riders || riders === 0
                 ? <div className="rode-reports-text">
                     <span className="rode-number">{riders}</span> riders in the last 30 days.
                 </div>

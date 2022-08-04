@@ -50,5 +50,43 @@ export let trails = [
             "Tue Jul 26 2022 14:45:02 GMT-0600 (Mountain Daylight Time)",
             "Tue Jul 26 2022 14:46:02 GMT-0600 (Mountain Daylight Time)"
         ]
+    },    
+    {
+        "id": "003",
+        "name": "Muddy Mountain",
+        "description": "Explore the many winding singletrack options that Muddy Mountain has to offer. Mostly forested, these trails are not very well signed, but you're not likely to get lost. Head all the way south for a beautiful overlook.",
+        "difficulty": "blue",
+        "latlong": "42.674720, -106.242025",
+        "distance": "13 mi.",
+        "elevation": "1,880 ft.",
+        "notes": "Check for seasonal access closure.",
+        "conditions": {
+            "dry": [],
+            "dry-dusty": [],
+            "heavy-snow": [],
+            "light-snow": [],
+            "muddy": [],
+            "obstructed": []
+        },
+        "ridereports": []
+    },
+    {
+        "id": "004",
+        "name": "Crossroads",
+        "description": "Mostly flat terrain near the North Platte River make this an approachable trail for beginners. Close proximity to downtown Casper makes it easy to enjoy these trails, even if just for a 30-minute spin. Crossroads tends to dry out early in the spring and stay dry later in the fall than most other trails in the area.",
+        "difficulty": "green",
+        "latlong": "42.865682, -106.316001",
+        "distance": "5 mi.",
+        "elevation": "370 ft.",
+        "notes": "Trails intersect with a disc golf course&mdash;watch out and ride considerately.",
+        "conditions": {
+            "dry": [],
+            "dry-dusty": [],
+            "heavy-snow": [],
+            "light-snow": [],
+            "muddy": [],
+            "obstructed": []
+        },
+        "ridereports": []
     }    
 ]

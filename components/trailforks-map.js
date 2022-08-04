@@ -1,4 +1,4 @@
-import Script from 'next/script';
+// import Script from 'next/script';
 import { useEffect } from 'react';
 
 export default function Map({ latlong }) {
@@ -85,7 +85,7 @@ function buildMap() {
     
     function check_widget_map() {
 
-        // ** dig into this and customize for own needs, trim it down **
+        // ** !!! dig into this and customize for own needs, trim it down !!! **
 
         for (var eRow = findWidgetsByClass("TrailforksWidgetMap"), a=0; a < eRow.length; a++) {
             var element = eRow[a],
