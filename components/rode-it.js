@@ -1,3 +1,18 @@
+export const processRiders = (ridereports) => {
+    let thirtyDayCount = 0;
+    let now = new Date();
+    let thirtyDayLimit = new Date(now);
+    // console.log(thirtyDayLimit);
+    thirtyDayLimit.setDate(now.getDate() - 30);
+    // console.log(thirtyDayLimit);
+    for (let i = 0; i < ridereports.length; i++ ) {
+        if (thirtyDayLimit < new Date(ridereports[i])) {
+            thirtyDayCount += 1;
+        }
+    }
+    return thirtyDayCount;
+}
+
 export default function RodeIt({ rodeSubmit, setRodeSubmit, riders, pageID }) {
     
     const handleClick = () => {

@@ -17,9 +17,10 @@ Build phase, primarily focused on functionality and back end work.
 \[x\] Distance and elevation on trail pages  
 \[x\] Current weather / forecast (NOAA API)  
 \[-\] Style weather forecast  
+\[ \] Handle weather API errors  
 \[ \] Add sophistication for recent reports algorithm (report expir., etc.)  
 \[ \] Add special alert for damaged or obstructed reports (with overwriting rules)  
-\[ \] Add expir. for I Rode It! after 30 days  
+\[x\] Add expir. for I Rode It! after 30 days  
 \[ \] Add trails (Duncan Ranch, Lamberson, Hogadon)  
 \[ \] Static generate all appropriate pages; load common updates after  
 \[ \] Increase separation of concerns; further reduce components  

@@ -28,7 +28,9 @@ export default function TrailWeather({ latlong }) {
             .then((response) => {
                 // handle errors
                 // check if daytime === true, then get either 0, 2, 4 or 1, 2, 4
-                // console.log(`Forecast today:\n${response.properties.periods[0].temperature}`);
+                if (response.status && response.status == 500) {
+                    console.log('Bad weather API response. Should we do something?');
+                }
                 let dayNightModifier = 1;
                 if (!response.properties.periods[0].isDaytime) {
                     dayNightModifier = 0;

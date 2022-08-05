@@ -26,7 +26,8 @@ export const processConditions = (conditions) => {
             mostReported = cond;
         }
     }
-    return mostReported === 'nodata' ? 'no recent reports'
+    return mostReported === 'nodata' 
+        ? 'no recent reports'
         : display[mostReported]
 }
 

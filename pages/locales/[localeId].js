@@ -6,6 +6,7 @@ import Template from '../../components/template';
 import DifIcon from '../../components/dificons';
 import { getTrailDataDB, getTrailIDsDB } from '../../lib/all-locales';
 import RodeIt from '../../components/rode-it';
+import { processRiders } from '../../components/rode-it';
 import ReportConditions from '../../components/trail-conditions';
 import { processConditions } from '../../components/trail-conditions';
 import TrailWeather from '../../components/weather';
@@ -50,7 +51,7 @@ export default function LocaleInfo({ trailData }) {
         .then((response) => {
             // console.log(`Ride reports reponse length: ${response.ridereports.length}`);
             setCondition(response.conditions);
-            setRiders(response.ridereports.length);
+            setRiders(processRiders(response.ridereports));
         });
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [condSubmit, rodeSubmit])
@@ -97,10 +98,11 @@ export default function LocaleInfo({ trailData }) {
                 <div className="row mt-3">
                     <div className="col-md-12">
                         <h3>Trail Conditions</h3>      
-                        {condition
-                            ? <p>Most recent reports say: 
-                                <span className="trail-detail">{processConditions(condition)}</span>
-                            </p>
+                        { 
+                            condition && processConditions(condition) !== 'no recent reports' 
+                            ? <p>Most recent reports say: <span className="trail-detail">{processConditions(condition)}</span></p>
+                            : condition && processConditions(condition) === 'no recent reports' 
+                            ? <p><span className="trail-detail">{processConditions(condition)}</span></p>                            
                             : <p><span className="loading-placeholder loading-text"></span></p>
                         }                        
                         <ReportConditions pageID={localeId} condSubmit={condSubmit} setCondSubmit={setCondSubmit} />                            
