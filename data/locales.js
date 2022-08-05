@@ -88,5 +88,24 @@ export let trails = [
             "obstructed": []
         },
         "ridereports": []
+    },
+    {
+        "id": "005",
+        "name": "Duncan Ranch",
+        "description": "Duncan Ranch is a newly developed trail, technically on private land but open to the public through a land-use agreement with the state. A variety of terrain from sage to pines keeps this trail interesting, and it tends to dry out earlier than Casper Mountain.",
+        "difficulty": "blue",
+        "latlong": "42.743690, -105.806689",
+        "distance": "5 mi.",
+        "elevation": "700 ft.",
+        "notes": "Keep an eye out for cows and wildlife—this trail is fairly remote.",
+        "conditions": {
+            "dry": [],
+            "dry-dusty": [],
+            "heavy-snow": [],
+            "light-snow": [],
+            "muddy": [],
+            "obstructed": []
+        },
+        "ridereports": []
     }    
 ]

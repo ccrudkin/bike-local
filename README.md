@@ -4,7 +4,8 @@
 This app initially targets the Casper, Wyoming, area, but is built to be scalable. It's meant to host basic trail information (location, maps, conditions, difficulty, amenities) with no account needed or other barriers to access.
 
 ## Status
-Build phase, primarily focused on functionality and back end work.
+~~Build phase, primarily focused on functionality and back end work.~~  
+Refining phase, mainly working on smoother functionality, errors, and edge cases. Designg yet to come.  
 
 ## Features to add
 
@@ -21,17 +22,18 @@ Build phase, primarily focused on functionality and back end work.
 \[ \] Add sophistication for recent reports algorithm (report expir., etc.)  
 \[ \] Add special alert for damaged or obstructed reports (with overwriting rules)  
 \[x\] Add expir. for I Rode It! after 30 days  
-\[ \] Add trails (Duncan Ranch, Lamberson, Hogadon)  
+\[ \] Add trails (Lamberson, Hogadon)  
 \[ \] Static generate all appropriate pages; load common updates after  
-\[ \] Increase separation of concerns; further reduce components  
+\[ \] Increase separation of concerns; further reduce components; clean code  
 \[ \] Amenities and icons (add to database and pages)  
-\[ \] Sort trails (alpha?)
+\[ \] Sort trails (alpha?)  
 \[ \] Favicon  
 \[ \] Deploy test  
 
 ### Phase 2
 \[-\] Interactive map  
 \[ \] Cookies for I Rode It! and condition report (once/day)  
+\[ \] Cookies alert  
 \[ \] Add editor interface for adding new trails
 
 ## Resources
