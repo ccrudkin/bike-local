@@ -18,7 +18,7 @@ Refining phase, mainly working on smoother functionality, errors, and edge cases
 \[x\] Distance and elevation on trail pages  
 \[x\] Current weather / forecast (NOAA API)  
 \[-\] Style weather forecast  
-\[ \] Handle weather API errors  
+\[x\] Handle weather API errors  
 \[ \] Add sophistication for recent reports algorithm (report expir., etc.)  
 \[ \] Add special alert for damaged or obstructed reports (with overwriting rules)  
 \[x\] Add expir. for I Rode It! after 30 days  
@@ -26,6 +26,7 @@ Refining phase, mainly working on smoother functionality, errors, and edge cases
 \[ \] Static generate all appropriate pages; load common updates after  
 \[ \] Increase separation of concerns; further reduce components; clean code  
 \[ \] Amenities and icons (add to database and pages)  
+\[ \] Trailhead elevations  
 \[ \] Sort trails (alpha?)  
 \[ \] Favicon  
 \[ \] Deploy test  

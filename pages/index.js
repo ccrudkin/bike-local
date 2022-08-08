@@ -58,7 +58,7 @@ export default function Home() {
                                                 </span> <DifIcon difficulty={difficulty} />
                                             </li>
                                         ))
-                                        : [...Array(4)].map((elem, index) => (
+                                        : [...Array(5)].map((elem, index) => (
                                             <li key={index}>
                                                 <span className='loading-placeholder dk-load loading-md'></span>
                                                 <br />

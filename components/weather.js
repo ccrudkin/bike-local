@@ -7,49 +7,67 @@ function cleanShortForecast(sfc) {
     });
 }
 
+function fetchWeather(latlong, setWeather, retries) {
+    // format from db: '42.737915, -106.316638'
+    const coords = latlong.split(', ');
+
+    fetch(`https://api.weather.gov/points/${coords[0]},${coords[1]}`)
+    .then((response) => {
+        return response.json();
+    })
+    .then((response) => {
+        console.log
+        fetch(response.properties.forecast)
+        .then((response) => {
+            if (!response.ok) {
+                // handle errors in catch
+                throw new Error(`Fetch error. Response: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then((response) => {
+            // check if daytime === true, then get either 0, 1, 3, 5 or 0, 2, 4, 6 
+            let dayNightModifier = 1;
+            if (!response.properties.periods[0].isDaytime) {
+                dayNightModifier = 0;
+            }
+            setWeather([
+                response.properties.periods[0],
+                response.properties.periods[1 + dayNightModifier],
+                response.properties.periods[3 + dayNightModifier],
+                response.properties.periods[5 + dayNightModifier],
+            ]);                
+        })
+        .catch((error) => {
+            console.error('There was a an error fetching weather.', error);
+            if (retries > 0) {
+                setTimeout(() => {
+                    console.log(`Retrying weather... (Retries left: ${retries})`);
+                    return fetchWeather(latlong, setWeather, retries - 1);
+                }, 4000);
+            } else {
+                setWeather(['error', 'Could not fetch current weather.']);
+            }
+        });
+    }); 
+}
+
 export default function TrailWeather({ latlong }) {
     const [weather, setWeather] = useState(null);
 
     useEffect(() => {
-        // format from db: 42.737915, -106.316638
-        // const latlong = '42.737915, -106.316638';
-        const coords = latlong.split(', ');
-        // console.log(coords);
-        fetch(`https://api.weather.gov/points/${coords[0]},${coords[1]}`)
-        .then((response) => {
-            return response.json();
-        })
-        .then((response) => {
-            console.log
-            fetch(response.properties.forecast)
-            .then((response) => {
-                console.log(`Weather API response: ${response.status}`);
-                // catch errors and bad responses here
-                return response.json();
-            })
-            .then((response) => {
-                // handle errors
-                // check if daytime === true, then get either 0, 2, 4 or 1, 2, 4
-                let dayNightModifier = 1;
-                if (!response.properties.periods[0].isDaytime) {
-                    dayNightModifier = 0;
-                }
-                setWeather([
-                    response.properties.periods[0],
-                    response.properties.periods[1 + dayNightModifier],
-                    response.properties.periods[3 + dayNightModifier],
-                    response.properties.periods[5 + dayNightModifier],
-                ]);                
-            })
-        });        
+        // variable[2] is number of retries allowed
+        fetchWeather(latlong, setWeather, 2);
     }, [])
+
+    // set another effect to retry weather (manually? on a timeout?)
 
     return (
         // clean up capitalization on short forecast; improve layout styling for forecast info
         <>
             <h3>Weather Forecast</h3>
             <div className="row mt-4 mb-4">
-            { weather
+            { weather && weather.length === 4
                 ? weather.map(({ 
                     name, 
                     temperature, 
@@ -71,6 +89,10 @@ export default function TrailWeather({ latlong }) {
                         </div>
                     </div>    
                 ))
+                : weather && weather[0] === 'error'
+                ? <div className="col-sm-12">
+                        <p><i className="fa-solid fa-circle-exclamation"></i> Could not get current weather forecast. Please try again.</p>
+                    </div>
                 : [...Array(4)].map((elem, index) => (
                     <div key={index} className="col-sm-3">
                         <span className='loading-placeholder loading-text'></span>
