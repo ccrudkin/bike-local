@@ -34,3 +34,5 @@ yarn-error.log*
 # secrets
 secure.txt
 .env
+
+/design

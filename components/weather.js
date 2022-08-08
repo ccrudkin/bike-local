@@ -60,10 +60,12 @@ export default function TrailWeather({ latlong }) {
         fetchWeather(latlong, setWeather, 2);
     }, [])
 
-    // set another effect to retry weather (manually? on a timeout?)
+    const handleClick = () => {
+        setWeather(null);
+        fetchWeather(latlong, setWeather, 2);            
+    }
 
     return (
-        // clean up capitalization on short forecast; improve layout styling for forecast info
         <>
             <h3>Weather Forecast</h3>
             <div className="row mt-4 mb-4">
@@ -92,6 +94,9 @@ export default function TrailWeather({ latlong }) {
                 : weather && weather[0] === 'error'
                 ? <div className="col-sm-12">
                         <p><i className="fa-solid fa-circle-exclamation"></i> Could not get current weather forecast. Please try again.</p>
+                        <div className="mt-2 mb-2">
+                            <button className="btn btn-warning" onClick={handleClick}>Retry</button>
+                        </div>
                     </div>
                 : [...Array(4)].map((elem, index) => (
                     <div key={index} className="col-sm-3">
