@@ -43,17 +43,14 @@ export default function RodeIt({ rodeSubmit, setRodeSubmit, riders, pageID }) {
             {
                 rodeSubmit === 'not-submitted' && 
                 <button className="btn btn-primary btn-rode-it" onClick={handleClick}>I Rode It!</button>
-                   
             }
             {
                 rodeSubmit === 'pending' && 
-                <button className="btn btn-primary btn-rode-it submit-pending"><i className="fa-solid fa-spinner fa-spin-pulse"></i></button>
-                    
+                <button className="btn btn-primary btn-rode-it submit-pending"><i className="fa-solid fa-spinner fa-spin-pulse"></i></button>                    
             } 
             {
                 rodeSubmit === 'submitted' && 
-                <button className="btn btn-success btn-rode-it submitted" id="submitted-ride-button">I Rode It! <i className="fa-solid fa-circle-check"></i></button>
-                    
+                <button className="btn btn-success btn-rode-it submitted" id="submitted-ride-button">I Rode It! <i className="fa-solid fa-circle-check"></i></button>                    
             }
             {
                 rodeSubmit === 'failed' && 

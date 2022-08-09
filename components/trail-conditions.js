@@ -40,7 +40,7 @@ export default function ReportConditions({ pageID, condSubmit, setCondSubmit }) 
     const handleChange = (e) => {
         e.preventDefault();
         setConditions(e.target.value);
-        console.log(`Selected: ${e.target.value}`);
+        // console.log(`Selected: ${e.target.value}`);
     }
 
     const handleClick = () => {
