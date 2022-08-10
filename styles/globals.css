@@ -11875,6 +11875,10 @@ ul.locales-list li {
   white-space: nowrap;
 }
 
+.trail-detail.trail-detail-alt {
+  border-color: #b9770e;
+}
+
 .conditions-label {
   margin-bottom: 0.5em;
 }
@@ -11903,6 +11907,81 @@ ul.locales-list li {
 .small-warning {
   font-size: 0.85em;
   color: #b03a2e;
+}
+
+.recentCommonContainer {
+  display: flex;
+}
+.recentCommonContainer > div {
+  display: inline-block;
+}
+
+.recentCommonLabel {
+  font-size: 0.85em;
+  color: #666666;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 2.5em;
+  height: 1.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.switch.switch-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #b9770e;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 1em;
+  width: 1em;
+  left: 0.25em;
+  bottom: 0.25em;
+  background-color: white;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+input:checked + .slider {
+  background-color: #1f618d;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(1em);
+  -ms-transform: translateX(1em);
+  transform: translateX(1em);
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #aaaaaa;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 1.5em;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 .loading-placeholder {

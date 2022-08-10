@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReportConditions from './trail-conditions';
 import { processConditions } from './trail-conditions';
 
@@ -14,19 +14,63 @@ export default function DisplayConditions({ condSubmit, setCondSubmit, condition
   // setDisplayReports should run in an effect that monitors changes in 'condition' prop
   const [displayReports, setDisplayReports] = useState(null);
 
-  return(
+  useEffect(() => {
+    if (condition) {
+      setDisplayReports(processConditions(condition));
+    }
+  }, [condition]);
+
+  const handleToggle = (e) => {
+    e.target.checked
+    ? setToggle('common')
+    : setToggle('recent')
+  };
+
+  return (
     <div className="row mt-3">
       <div className="col-md-12">
-          <h3>Trail Conditions</h3>      
-          { 
-              condition && processConditions(condition) !== 'no recent reports' 
-              ? <p>Most recent reports say: <span className="trail-detail">{processConditions(condition)}</span></p>
-              : condition && processConditions(condition) === 'no recent reports' 
-              ? <p><span className="trail-detail">{processConditions(condition)}</span></p>                            
-              : <p><span className="loading-placeholder loading-text"></span></p>
-          }                        
-          <ReportConditions pageID={localeId} condSubmit={condSubmit} setCondSubmit={setCondSubmit} />                            
+        <h3>Trail Conditions</h3>
+        {
+          displayReports && displayReports[toggle].condition !== 'nodata'
+          ? <div className="recentCommonContainer mt-2 mb-3 ms-2">
+              <div className="recentCommonLabel">Most Recent</div>
+              <label htmlFor="recentCommonSwitch" className="switch">
+                <input type="checkbox" id="recentCommonSwitch" onClick={handleToggle} role="switch" />
+                <span className="slider round"></span>
+              </label>
+              <div className="recentCommonLabel">Most Common</div>
+            </div>
+          : displayReports && displayReports[toggle].condition === 'nodata'
+          ? <div className="recentCommonContainer mt-2 mb-3 ms-2">
+              <div className="recentCommonLabel">Most Recent</div>
+              <label htmlFor="recentCommonSwitch" className="switch switch-disabled">
+                <input type="checkbox" id="recentCommonSwitch" role="switch" aria-disabled="true" />
+                <span className="slider round"></span>
+              </label>
+              <div className="recentCommonLabel">Most Common</div>
+            </div>
+          : <p><span className="loading-placeholder loading-text"></span></p>
+        }
+        {
+          displayReports && displayReports[toggle].condition !== 'nodata' && toggle === 'recent'
+          ? <p>
+              <span className="trail-detail trail-detail-alt">{displayReports[toggle].condition} &ndash; <em>on {displayReports[toggle].date.toDateString()}</em></span>
+            </p>
+          : displayReports && displayReports[toggle].condition !== 'nodata' && toggle === 'common'
+          ? <p>
+              <span className="trail-detail">
+                {displayReports[toggle].condition} 
+                &nbsp;&ndash;&nbsp;
+                <em>reported {displayReports[toggle].number} {displayReports[toggle].number === 1 ? 'time' : 'times'} in 30 days</em></span>
+            </p>
+          : displayReports && displayReports[toggle].condition === 'nodata'
+          ? <p>
+              <span className="trail-detail">no recent reports</span>
+            </p>
+          : <p><span className="loading-placeholder loading-text"></span></p>
+        }
+        <ReportConditions pageID={localeId} condSubmit={condSubmit} setCondSubmit={setCondSubmit} />
       </div>
     </div>
-  )
-}
+  );
+};
