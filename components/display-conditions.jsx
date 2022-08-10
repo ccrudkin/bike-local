@@ -31,6 +31,7 @@ export default function DisplayConditions({ condSubmit, setCondSubmit, condition
       <div className="col-md-12">
         <h3>Trail Conditions</h3>
         {
+          // this switch could probably become a component
           displayReports && displayReports[toggle].condition !== 'nodata'
           ? <div className="recentCommonContainer mt-2 mb-3 ms-2">
               <div className="recentCommonLabel">Most Recent</div>

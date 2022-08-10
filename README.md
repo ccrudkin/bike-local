@@ -19,8 +19,7 @@ Refining phase, mainly working on smoother functionality, errors, and edge cases
 \[x\] Current weather / forecast (NOAA API)  
 \[-\] Style weather forecast  
 \[x\] Handle weather API errors  
-\[ \] Add sophistication for recent reports algorithm (report expir., etc.)  
-\[ \] Add special alert for damaged or obstructed reports (with overwriting rules)  
+\[x\] Add sophistication for recent reports algorithm (report expir., etc.)  
 \[x\] Add expir. for I Rode It! after 30 days  
 \[ \] Add trails (Lamberson, Hogadon)  
 \[ \] Static generate all appropriate pages; load common updates after  
