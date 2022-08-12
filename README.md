@@ -22,13 +22,13 @@ Refining phase, mainly working on smoother functionality, errors, and edge cases
 \[x\] Add sophistication for recent reports algorithm (report expir., etc.)  
 \[x\] Add expir. for I Rode It! after 30 days  
 \[-\] Add trails (Lamberson, Hogadon)  
-\[ \] Static generate all appropriate pages; load common updates after  
+\[x\] Static generate all appropriate pages; load common updates after  
 \[-\] Increase separation of concerns; further reduce components; clean code  
 \[ \] Amenities and icons (add to database and pages)  
 \[ \] Trailhead elevations  
 \[ \] Sort trails (alpha?)  
-\[ \] Favicon  
-\[ \] Deploy test  
+\[-\] Favicon  
+\[x\] Deploy test  
 
 ### Phase 2
 \[-\] Interactive map  
