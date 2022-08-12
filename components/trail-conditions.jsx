@@ -1,12 +1,6 @@
 import { useState } from 'react';
 
 export const processConditions = (conditions) => {
-    // this will become more sophisticated soon
-    // e.g., obstruction reports take precedence and reports have an expiration time/date
-    // or a special alert for obsructed or damaged trail reports until overwritten by newer report (!)
-    // and when reports are matched in number, newer reports take precedence
-    // let mostReports = 0;
-    // let mostReported = 'nodata';
     let display = {
         "dry": "dry",
         "dry-dusty": "dry and dusty",
@@ -61,16 +55,6 @@ export const processConditions = (conditions) => {
         return mostCommon;
     }
 
-    // console.log(`This trail is: ${trails[i].id}`);
-    // for (const cond in conditions) {
-    //     // console.log(`Location: ${trails[i].id} Condition: ${cond} / Reports: \n${trails[i].conditions[cond].length}`);
-    //     if (conditions[cond].length > mostReports) {
-    //         // console.log(`Condition: ${cond} / Reports: \n${trails[i].conditions[cond].length}`);
-    //         mostReports = conditions[cond].length;
-    //         mostReported = cond;
-    //     }
-    // }
-
     let recentAndCommon = {
         recent: getMostRecent(),
         common: getMostCommon()
@@ -81,14 +65,10 @@ export const processConditions = (conditions) => {
 
 export default function ReportConditions({ pageID, condSubmit, setCondSubmit }) {
     const [conditions, setConditions] = useState('not selected');
-    // const [condSubmit, setCondSubmit] = useState('not-submitted');
-
-    // console.log(`Props passed: ${pageID}`);
 
     const handleChange = (e) => {
         e.preventDefault();
         setConditions(e.target.value);
-        // console.log(`Selected: ${e.target.value}`);
     }
 
     const handleClick = () => {
@@ -99,11 +79,9 @@ export default function ReportConditions({ pageID, condSubmit, setCondSubmit }) 
             method: 'POST'
         })
         .then((response) => {
-            // console.log(response.status)
             return response.json();
         })
         .then((response) => {
-            // console.log(`Report recorded: ${response.modifiedCount}`);
             if (response.modifiedCount === 1) {
                 setCondSubmit('submitted');
                 setTimeout(() => {
@@ -118,8 +96,6 @@ export default function ReportConditions({ pageID, condSubmit, setCondSubmit }) 
             }
         });
     }
-
-    // console.log(`Selected: ${conditions}`);
 
     return (
         <div className="mt-4">

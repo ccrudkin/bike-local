@@ -4,34 +4,34 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Template from '../components/template';
 import styles from '../styles/Home.module.css';
-// import { getTrailBasicsDB } from '../lib/all-locales';
+import { getTrailBasicsDB } from '../lib/all-locales';
 import DifIcon from '../components/dificons';
 
-// swith to API and load data after
-// export async function getServerSideProps() {
-//     let allTrailsData = await getTrailBasicsDB();
-//     return { 
-//         props: {
-//             allTrailsData
-//         },
-//     };
-// }
+// switch to API and load data after
+export async function getServerSideProps() {
+    let allTrailsData = await getTrailBasicsDB();
+    return { 
+        props: {
+            allTrailsData
+        },
+    };
+}
 
-export default function Home() {
+export default function Home({ allTrailsData }) {
   // Should still static-generate most of the page for speed and SEO; look into docs
   // AND why is the API call running twice? Possibly because I'm in DEV mode.
 
-  const [allTrailsData, setTrailsData] = useState(null);
+  // const [allTrailsData, setTrailsData] = useState(null);
 
-  useEffect(() => {
-    fetch('/api/all-trails')
-      .then((response) => {
-        return response.json();
-      })
-      .then((response) => {
-        setTrailsData(response);
-      });
-  }, [])
+  // useEffect(() => {
+  //   fetch('/api/all-trails')
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((response) => {
+  //       setTrailsData(response);
+  //     });
+  // }, [])
 
   return (
     <Template home>

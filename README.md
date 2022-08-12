@@ -23,7 +23,7 @@ Refining phase, mainly working on smoother functionality, errors, and edge cases
 \[x\] Add expir. for I Rode It! after 30 days  
 \[-\] Add trails (Lamberson, Hogadon)  
 \[ \] Static generate all appropriate pages; load common updates after  
-\[ \] Increase separation of concerns; further reduce components; clean code  
+\[-\] Increase separation of concerns; further reduce components; clean code  
 \[ \] Amenities and icons (add to database and pages)  
 \[ \] Trailhead elevations  
 \[ \] Sort trails (alpha?)  
