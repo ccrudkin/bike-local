@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import ReportConditions from './trail-conditions';
 import { processConditions } from './trail-conditions';
+import RecentCommonSwitch from './recent-common-switch';
 
 export default function DisplayConditions({ condSubmit, setCondSubmit, condition, localeId }) {
   // use a toggle to choose 'most recent condition' OR 'most reported condition'
@@ -32,24 +33,27 @@ export default function DisplayConditions({ condSubmit, setCondSubmit, condition
         <h3>Trail Conditions</h3>
         {
           // this switch could probably become a component
-          displayReports && displayReports[toggle].condition !== 'nodata'
-          ? <div className="recentCommonContainer mt-2 mb-3 ms-2">
-              <div className="recentCommonLabel">Most Recent</div>
-              <label htmlFor="recentCommonSwitch" className="switch">
-                <input type="checkbox" id="recentCommonSwitch" onClick={handleToggle} role="switch" />
-                <span className="slider round"></span>
-              </label>
-              <div className="recentCommonLabel">Most Common</div>
-            </div>
-          : displayReports && displayReports[toggle].condition === 'nodata'
-          ? <div className="recentCommonContainer mt-2 mb-3 ms-2">
-              <div className="recentCommonLabel">Most Recent</div>
-              <label htmlFor="recentCommonSwitch" className="switch switch-disabled">
-                <input type="checkbox" id="recentCommonSwitch" role="switch" aria-disabled="true" />
-                <span className="slider round"></span>
-              </label>
-              <div className="recentCommonLabel">Most Common</div>
-            </div>
+          // displayReports && displayReports[toggle].condition !== 'nodata'
+          // ? <div className="recentCommonContainer mt-2 mb-3 ms-2">
+          //     <div className="recentCommonLabel">Most Recent</div>
+          //     <label htmlFor="recentCommonSwitch" className="switch">
+          //       <input type="checkbox" id="recentCommonSwitch" onClick={handleToggle} role="switch" />
+          //       <span className="slider round"></span>
+          //     </label>
+          //     <div className="recentCommonLabel">Most Common</div>
+          //   </div>
+          // : displayReports && displayReports[toggle].condition === 'nodata'
+          // ? <div className="recentCommonContainer mt-2 mb-3 ms-2">
+          //     <div className="recentCommonLabel">Most Recent</div>
+          //     <label htmlFor="recentCommonSwitch" className="switch switch-disabled">
+          //       <input type="checkbox" id="recentCommonSwitch" role="switch" aria-disabled="true" />
+          //       <span className="slider round"></span>
+          //     </label>
+          //     <div className="recentCommonLabel">Most Common</div>
+          //   </div>
+          // : <p><span className="loading-placeholder loading-text"></span></p>
+          displayReports
+          ? <RecentCommonSwitch condition={displayReports[toggle.condition]} handleToggle={handleToggle} />
           : <p><span className="loading-placeholder loading-text"></span></p>
         }
         {

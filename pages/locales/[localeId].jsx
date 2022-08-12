@@ -13,8 +13,6 @@ import Map from '../../components/trailforks-map';
 
 export async function getStaticProps({ params }) {
   let trailData = await getTrailDataDB(params.localeId);
-  // console.log(`Awaited trailData: ${JSON.stringify(trailData)}`);
-  // trailData = JSON.parse(JSON.stringify(trailData));
   return {
     props: {
       trailData
@@ -39,16 +37,13 @@ export default function LocaleInfo({ trailData }) {
   const [condition, setCondition] = useState(null);
   const router = useRouter();
   const { localeId } = router.query;
-  // console.log(`Locale ID captured: ${localeId}`);
 
   useEffect(() => {
     fetch(`/api/trail-condition?localeId=${localeId}`)
       .then((response) => {
-        // console.log(response.status)
         return response.json();
       })
       .then((response) => {
-        // console.log(`Ride reports reponse length: ${response.ridereports.length}`);
         setCondition(response.conditions);
         setRiders(processRiders(response.ridereports));
       });
@@ -93,7 +88,8 @@ export default function LocaleInfo({ trailData }) {
             </div>
           </div>
         </div>
-        <TrailWeather latlong={trailData.latlong} />
+        <TrailWeather 
+        latlong={trailData.latlong} />
         <DisplayConditions 
           condSubmit={condSubmit}
           setCondSubmit={setCondSubmit}

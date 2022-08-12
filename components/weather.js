@@ -1,116 +1,116 @@
 import { useState, useEffect } from 'react';
 
 function cleanShortForecast(sfc) {
-    let regex = /(\s[A-Z])/g;
-    return sfc.replaceAll(regex, (match) => {
-        return match.toLowerCase();
-    });
+  let regex = /(\s[A-Z])/g;
+  return sfc.replaceAll(regex, (match) => {
+    return match.toLowerCase();
+  });
 }
 
 function fetchWeather(latlong, setWeather, retries) {
-    // format from db: '42.737915, -106.316638'
-    const coords = latlong.split(', ');
+  // format from db: '42.737915, -106.316638'
+  const coords = latlong.split(', ');
 
-    fetch(`https://api.weather.gov/points/${coords[0]},${coords[1]}`)
+  fetch(`https://api.weather.gov/points/${coords[0]},${coords[1]}`)
     .then((response) => {
-        return response.json();
+      return response.json();
     })
     .then((response) => {
-        console.log
-        fetch(response.properties.forecast)
+      console.log
+      fetch(response.properties.forecast)
         .then((response) => {
-            if (!response.ok) {
-                // handle errors in catch
-                throw new Error(`Fetch error. Response: ${response.status}`);
-            }
-            return response.json();
+          if (!response.ok) {
+            // handle errors in catch
+            throw new Error(`Fetch error. Response: ${response.status}`);
+          }
+          return response.json();
         })
         .then((response) => {
-            // check if daytime === true, then get either 0, 1, 3, 5 or 0, 2, 4, 6 
-            let dayNightModifier = 1;
-            if (!response.properties.periods[0].isDaytime) {
-                dayNightModifier = 0;
-            }
-            setWeather([
-                response.properties.periods[0],
-                response.properties.periods[1 + dayNightModifier],
-                response.properties.periods[3 + dayNightModifier],
-                response.properties.periods[5 + dayNightModifier],
-            ]);                
+          // check if daytime === true, then get either 0, 1, 3, 5 or 0, 2, 4, 6 
+          let dayNightModifier = 1;
+          if (!response.properties.periods[0].isDaytime) {
+            dayNightModifier = 0;
+          }
+          setWeather([
+            response.properties.periods[0],
+            response.properties.periods[1 + dayNightModifier],
+            response.properties.periods[3 + dayNightModifier],
+            response.properties.periods[5 + dayNightModifier],
+          ]);
         })
         .catch((error) => {
-            console.error('There was a an error fetching weather.', error);
-            if (retries > 0) {
-                setTimeout(() => {
-                    console.log(`Retrying weather... (Retries left: ${retries})`);
-                    return fetchWeather(latlong, setWeather, retries - 1);
-                }, 4000);
-            } else {
-                setWeather(['error', 'Could not fetch current weather.']);
-            }
+          console.error('There was a an error fetching weather.', error);
+          if (retries > 0) {
+            setTimeout(() => {
+              console.log(`Retrying weather... (Retries left: ${retries})`);
+              return fetchWeather(latlong, setWeather, retries - 1);
+            }, 4000);
+          } else {
+            setWeather(['error', 'Could not fetch current weather.']);
+          }
         });
-    }); 
+    });
 }
 
 export default function TrailWeather({ latlong }) {
-    const [weather, setWeather] = useState(null);
+  const [weather, setWeather] = useState(null);
 
-    useEffect(() => {
-        // variable[2] is number of retries allowed
-        fetchWeather(latlong, setWeather, 2);
-    }, [])
+  useEffect(() => {
+    // variable[2] is number of retries allowed
+    fetchWeather(latlong, setWeather, 2);
+  }, [])
 
-    const handleClick = () => {
-        setWeather(null);
-        fetchWeather(latlong, setWeather, 2);            
-    }
+  const handleClick = () => {
+    setWeather(null);
+    fetchWeather(latlong, setWeather, 2);
+  }
 
-    return (
-        <>
-            <h3>Weather Forecast</h3>
-            <div className="row mt-4 mb-4">
-            { weather && weather.length === 4
-                ? weather.map(({ 
-                    name, 
-                    temperature, 
-                    temperatureUnit, 
-                    windSpeed, 
-                    windDirection, 
-                    shortForecast 
-                }, index) => (
-                    <div key={index} className="col-sm-3 mt-2">
-                        <div className="weather-day">
-                            <p>
-                                <strong>{name}</strong>
-                                <br />
-                                <span className="fs-3">{temperature}&deg;{temperatureUnit}</span>
-                                <br />
-                                Wind {windSpeed} {windDirection}
-                            </p>
-                            <p className="small">{cleanShortForecast(shortForecast)}</p>                            
-                        </div>
-                    </div>    
-                ))
-                : weather && weather[0] === 'error'
-                ? <div className="col-sm-12">
-                        <p><i className="fa-solid fa-circle-exclamation"></i> Could not get current weather forecast. Please try again.</p>
-                        <div className="mt-2 mb-2">
-                            <button className="btn btn-warning" onClick={handleClick}>Retry</button>
-                        </div>
-                    </div>
-                : [...Array(4)].map((elem, index) => (
-                    <div key={index} className="col-sm-3">
-                        <span className='loading-placeholder loading-text'></span>
-                        <br />
-                        <span className='loading-placeholder loading-md'></span>
-                        <br />
-                        <span className='loading-placeholder loading-text'></span>
-                        <br />
-                        <span className='loading-placeholder loading-text'></span>
-                    </div>
-                )) 
-            }
+  return (
+    <>
+      <div className="row mt-4 mb-4">
+        <h3>Weather Forecast</h3>
+        {weather && weather.length === 4
+          ? weather.map(({
+            name,
+            temperature,
+            temperatureUnit,
+            windSpeed,
+            windDirection,
+            shortForecast
+          }, index) => (
+            <div key={index} className="col-sm-3 mt-2">
+              <div className="weather-day">
+                <p>
+                  <strong>{name}</strong>
+                  <br />
+                  <span className="fs-3">{temperature}&deg;{temperatureUnit}</span>
+                  <br />
+                  Wind {windSpeed} {windDirection}
+                </p>
+                <p className="small">{cleanShortForecast(shortForecast)}</p>
+              </div>
             </div>
-        </>
-    )
+          ))
+          : weather && weather[0] === 'error'
+            ? <div className="col-sm-12">
+              <p><i className="fa-solid fa-circle-exclamation"></i> Could not get current weather forecast. Please try again.</p>
+              <div className="mt-2 mb-2">
+                <button className="btn btn-warning" onClick={handleClick}>Retry</button>
+              </div>
+            </div>
+            : [...Array(4)].map((elem, index) => (
+              <div key={index} className="col-sm-3">
+                <span className='loading-placeholder loading-text'></span>
+                <br />
+                <span className='loading-placeholder loading-md'></span>
+                <br />
+                <span className='loading-placeholder loading-text'></span>
+                <br />
+                <span className='loading-placeholder loading-text'></span>
+              </div>
+            ))
+        }
+      </div>
+    </>
+  )
 }
