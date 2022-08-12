@@ -8,7 +8,7 @@ import { getTrailBasicsDB } from '../lib/all-locales';
 import DifIcon from '../components/dificons';
 
 // switch to API and load data after
-export async function getServerSideProps() {
+export async function getStaticProps() {
     let allTrailsData = await getTrailBasicsDB();
     return { 
         props: {
