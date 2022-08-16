@@ -24,6 +24,7 @@ Refining phase, mainly working on smoother functionality, errors, and edge cases
 \[-\] Add trails (Lamberson, Hogadon)  
 \[x\] Static generate all appropriate pages; load common updates after  
 \[-\] Increase separation of concerns; further reduce components; clean code  
+\[-\] Bug: able to submit blank condition (~~FIX - TEST~~ - DEPLOY)  
 \[ \] Amenities and icons (add to database and pages)  
 \[ \] Trailhead elevations  
 \[ \] Sort trails (alpha?)  
@@ -32,9 +33,10 @@ Refining phase, mainly working on smoother functionality, errors, and edge cases
 
 ### Phase 2
 \[-\] Interactive map  
-\[ \] Cookies for I Rode It! and condition report (once/day)  
+\[ \] Add local interests page (shops, breweries, restaurants, etc.)  
+\[ \] Cookies for I Rode It! and condition report (once per day per trail)  
 \[ \] Cookies alert  
-\[ \] Add editor interface for adding new trails
+\[ \] Add editor interface for adding new trails  
 
 ## Resources
 

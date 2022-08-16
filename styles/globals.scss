@@ -147,6 +147,13 @@ ul.locales-list {
 
 #select-conditions {
     margin-bottom: 1em;
+    box-shadow: none;
+    transition: box-shadow .25s;
+}
+
+#select-conditions.highlight-shadow {
+    box-shadow: 0 0 10px $secondary;
+    transition: box-shadow .25s;
 }
 
 .btn.btn-report, .btn.btn-rode-it {

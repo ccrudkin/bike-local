@@ -64,7 +64,7 @@ export const processConditions = (conditions) => {
 }
 
 export default function ReportConditions({ pageID, condSubmit, setCondSubmit }) {
-    const [conditions, setConditions] = useState('not selected');
+    const [conditions, setConditions] = useState('');
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -97,11 +97,27 @@ export default function ReportConditions({ pageID, condSubmit, setCondSubmit }) 
         });
     }
 
+    const handleClickEmpty = () => {
+        let selectElement = document.getElementById('select-conditions');
+        let count = 4;     
+
+        const interval = setInterval(() => {
+            selectElement.className === 'highlight-shadow'
+            ? selectElement.classList.remove('highlight-shadow')
+            : selectElement.classList.add('highlight-shadow')
+
+            count -= 1;
+            if (count <= 0) {
+                clearInterval(interval);
+            }
+        }, 200)
+    }
+
     return (
         <div className="mt-4">
             <label htmlFor="select-conditions" className="conditions-label">Report current conditions:</label>
             <br />
-            <select name="conditions-report" id="select-conditions" onChange={handleChange}>
+            <select name="conditions-report" value={conditions} id="select-conditions" onChange={handleChange}>
                 <option value="">-- Choose conditions --</option>
                 <option value="dry">Dry</option>
                 <option value="dry-dusty">Dry and dusty</option>
@@ -112,8 +128,12 @@ export default function ReportConditions({ pageID, condSubmit, setCondSubmit }) 
             </select>
             <br />
             {
-                condSubmit === 'not-submitted' &&
+                condSubmit === 'not-submitted' && conditions !== '' &&
                 <button className="btn btn-primary btn-report" onClick={handleClick}>Submit</button>
+            }
+            {
+                condSubmit === 'not-submitted' && conditions === '' &&
+                <button className="btn btn-primary btn-report" onClick={handleClickEmpty}>Submit</button>
             }
             {
                 condSubmit === 'pending' &&

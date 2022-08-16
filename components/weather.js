@@ -99,7 +99,7 @@ export default function TrailWeather({ latlong }) {
               </div>
             </div>
             : [...Array(4)].map((elem, index) => (
-              <div key={index} className="col-sm-3">
+              <div key={index} className="col-sm-3 mt-2">
                 <span className='loading-placeholder loading-text'></span>
                 <br />
                 <span className='loading-placeholder loading-md'></span>
