@@ -7,6 +7,7 @@ export const processConditions = (conditions) => {
         "heavy-snow": "heavy snow and ice",
         "light-snow": "light snow in spots",
         "muddy": "wet and muddy",
+        "damp": "damp and firm",
         "obstructed": "damaged or obstructed",
         "nodata": "nodata"
     }
@@ -121,9 +122,10 @@ export default function ReportConditions({ pageID, condSubmit, setCondSubmit }) 
                 <option value="">-- Choose conditions --</option>
                 <option value="dry">Dry</option>
                 <option value="dry-dusty">Dry and dusty</option>
-                <option value="heavy-snow">Heavy snow and ice</option>
-                <option value="light-snow">Light snow in spots</option>
+                <option value="damp">Damp and firm</option>
                 <option value="muddy">Wet and muddy</option>
+                <option value="light-snow">Light snow in spots</option>
+                <option value="heavy-snow">Heavy snow and ice</option>
                 <option value="obstructed">Damaged or obstructed</option>
             </select>
             <br />

@@ -24,10 +24,11 @@ Refining phase, mainly working on smoother functionality, errors, and edge cases
 \[-\] Add trails (Lamberson, Hogadon)  
 \[x\] Static generate all appropriate pages; load common updates after  
 \[-\] Increase separation of concerns; further reduce components; clean code  
-\[-\] Bug: able to submit blank condition (~~FIX - TEST~~ - DEPLOY)  
+\[x\] Bug: able to submit blank condition  
 \[ \] Amenities and icons (add to database and pages)  
 \[ \] Trailhead elevations  
 \[ \] Sort trails (alpha?)  
+\[x\] Add damp/firm condition; order drop down differently  
 \[-\] Favicon  
 \[x\] Deploy test  
 
