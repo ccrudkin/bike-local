@@ -18,16 +18,26 @@ export default function Template({ children, home }) {
       <div className='flex-section-container'>
         <header>
           {home ? (
-            <div className='site-header home'>
-              <h1>Bike Casper</h1>
-              <p>Local info for mountain biking near Casper, Wyoming.</p>
+            <div className="container">
+              <div className="row">
+                <div className="col-md-12">
+                  <div className='site-header home'>
+                    <div className="site-title">
+                      <h1>Bike<br />Casper</h1>
+                    </div>
+                    <div className="site-description">
+                      <p>Up-to-date local info for mountain biking near Casper, Wyoming.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           ) : (
             <div className='row site-header not-home'>
               <div className="col-sm-6">
                 <h2>
                   <Link href="/">
-                    <a>Bike Casper</a>
+                    <a>Bike<br />Casper</a>
                   </Link>
                 </h2>
               </div>

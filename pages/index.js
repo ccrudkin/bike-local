@@ -39,32 +39,52 @@ export default function Home({ allTrailsData }) {
       <div className="home-container">
         <div className="container">
           <div className="row">
-            <div className="col-md-8 col-lg-7">
-              <div className="mt-3"></div>
-              <div className="locales-list-container">
-                <h2>Trails</h2>
-                <ul className='locales-list'>
-                  {allTrailsData
-                    ? allTrailsData.map(({ id, name, difficulty, distance, elevation }) => (
-                      <li key={id}>
-                        <Link href={`/locales/${id}`}>
-                          {name}
-                        </Link>
+            <div className="col-md-12">
+              <div className="mt-2"></div>
+              <div className="row">
+                {allTrailsData
+                  ? allTrailsData.map(({ id, name, difficulty, distance, elevation }) => (
+                    <div className='col-sm-6 col-lg-4' key={id}>
+                      <div className="trail-square">
+                        <div className="trail-photo"></div>
+                        <div className="trail-name">
+                          <Link href={`/locales/${id}`}>
+                            {name}
+                          </Link>                          
+                          <div className="trail-difficulty">
+                            <DifIcon difficulty={difficulty} />
+                          </div>
+                        </div>
                         <br />
                         <span className="all-trails-details">
                           {distance} / {elevation} <i className="fa-solid fa-arrow-up"></i>
-                        </span> <DifIcon difficulty={difficulty} />
-                      </li>
-                    ))
-                    : [...Array(5)].map((elem, index) => (
-                      <li key={index}>
-                        <span className='loading-placeholder dk-load loading-md'></span>
-                        <br />
-                        <span className='loading-placeholder dk-load loading-sm'></span>
-                      </li>
-                    ))
-                  }
-                </ul>
+                        </span>
+                      </div>
+                    </div>
+                  ))
+                  : [...Array(5)].map((elem, index) => (
+                    <div className='col-sm-6 col-lg-4' key={id}>
+                      <span className='loading-placeholder dk-load loading-md'></span>
+                      <br />
+                      <span className='loading-placeholder dk-load loading-sm'></span>
+                    </div>
+                  ))
+                }
+                {
+                  allTrailsData
+                  ? <div className="col-sm-6 col-lg-4">
+                      <div className="trail-square local-square">
+                        <h3>Support<br />Local!</h3>
+                        <hr />
+                        <p>Visit one of Casper‘s bike shops, and consider joining the Central Wyoming Trails Association.</p>
+                      </div>
+                    </div>
+                  : <div className='col-sm-6 col-lg-4'>
+                      <span className='loading-placeholder dk-load loading-md'></span>
+                      <br />
+                      <span className='loading-placeholder dk-load loading-sm'></span>
+                    </div>
+                }
               </div>
             </div>
           </div>

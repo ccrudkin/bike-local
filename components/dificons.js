@@ -5,7 +5,7 @@ export default function DifIcon(props) {
     } else if (dif === 'blue') {
         return <span className="blue-square"><i className="fa-solid fa-square"></i></span>;        
     } else if (dif === 'blueBlack') {
-        return <span><span className="blue-square"><i className="fa-solid fa-square"></i></span> <span className="black-diamond"><i className="fa-solid fa-diamond"></i></span></span>;
+        return <span><span className="blue-square"><i className="fa-solid fa-square"></i></span><span className="black-diamond"><i className="fa-solid fa-diamond"></i></span></span>;
     } else if (dif === 'black') {
         return <span className="black-diamond"><i className="fa-solid fa-diamond"></i></span>;
     } else if (dif === 'doubleBlack') {
