@@ -11788,9 +11788,8 @@ header a:hover {
 }
 
 footer {
-  color: #eeeeee;
-  background-color: #333333;
-  padding: 1em 3em;
+  color: #25566f;
+  padding: 4em 4em;
   margin-top: 3em;
 }
 
@@ -11807,9 +11806,10 @@ footer {
 }
 .site-header .site-title {
   align-self: flex-end;
+  margin-bottom: -2.6em;
 }
 .site-header .site-title h1, .site-header .site-title .h1, .site-header .site-title h2, .site-header .site-title .h2 {
-  margin-bottom: -0.85em;
+  margin-bottom: 0;
   line-height: 1;
 }
 
@@ -11821,8 +11821,12 @@ footer {
   font-size: 3em;
 }
 
-.site-header.not-home h2, .site-header.not-home .h2 {
+.site-header.not-home h2 a, .site-header.not-home .h2 a {
+  color: #275d42;
   font-family: "Rubik Mono One", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.5em;
 }
 
 .site-header .header-nav {
@@ -11859,17 +11863,18 @@ a:hover {
   text-transform: uppercase;
   color: white;
   margin-right: 1em;
+  margin-top: 0.75em;
 }
 
 .home-container .trail-square {
   background-color: #25566f;
-  min-height: 14em;
-  margin-top: 2em;
+  min-height: 17em;
+  margin-top: 1em;
   padding: 0.5em;
   font-size: 1.5em;
 }
 .home-container .trail-square .trail-photo {
-  height: 5em;
+  margin: -0.5em -0.5em 1em -0.5em;
 }
 .home-container .trail-square .trail-name {
   background-color: white;
@@ -11894,7 +11899,7 @@ a:hover {
   font-family: "Rubik Mono One", sans-serif;
 }
 .home-container .local-square p {
-  font-size: 0.65em;
+  font-family: "Rubik", sans-serif;
 }
 .home-container .local-square hr {
   border: 4px solid white;

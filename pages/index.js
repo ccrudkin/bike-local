@@ -6,6 +6,7 @@ import Template from '../components/template';
 import styles from '../styles/Home.module.css';
 import { getTrailBasicsDB } from '../lib/all-locales';
 import DifIcon from '../components/dificons';
+import { withRouter } from 'next/router';
 
 // switch to API and load data after
 export async function getStaticProps() {
@@ -40,13 +41,20 @@ export default function Home({ allTrailsData }) {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <div className="mt-2"></div>
+              <div className="mt-5"></div>
               <div className="row">
                 {allTrailsData
                   ? allTrailsData.map(({ id, name, difficulty, distance, elevation }) => (
                     <div className='col-sm-6 col-lg-4' key={id}>
                       <div className="trail-square">
-                        <div className="trail-photo"></div>
+                        <div className="trail-photo">
+                          <Image 
+                            src={`/${id}-cover.jpg`} 
+                            alt={name}
+                            width={960}
+                            height={540}
+                            layout='responsive' />
+                        </div>
                         <div className="trail-name">
                           <Link href={`/locales/${id}`}>
                             {name}
@@ -55,10 +63,9 @@ export default function Home({ allTrailsData }) {
                             <DifIcon difficulty={difficulty} />
                           </div>
                         </div>
-                        <br />
-                        <span className="all-trails-details">
+                        <div className="all-trails-details">
                           {distance} / {elevation} <i className="fa-solid fa-arrow-up"></i>
-                        </span>
+                        </div>
                       </div>
                     </div>
                   ))
@@ -76,7 +83,7 @@ export default function Home({ allTrailsData }) {
                       <div className="trail-square local-square">
                         <h3>Support<br />Local!</h3>
                         <hr />
-                        <p>Visit one of Casper‘s bike shops, and consider joining the Central Wyoming Trails Association.</p>
+                        <p>Visit one of Casper‘s bike shops, and consider joining the Central Wyoming Trails Alliance.</p>
                       </div>
                     </div>
                   : <div className='col-sm-6 col-lg-4'>

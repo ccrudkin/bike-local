@@ -19,6 +19,7 @@ $dk-gray: #666666;
 $black: #111111;
 $red: #cc492f;
 $display-font: 'Rubik Mono One', sans-serif;
+$body-font: $font-family-sans-serif;
 
 $theme-yellow: #d8bd4c;
 $theme-green: #275d42;
@@ -43,9 +44,8 @@ header {
 }
 
 footer {
-    color: #eeeeee;
-    background-color: #333333;
-    padding: 1em 3em;
+    color: $primary;
+    padding: 4em 4em;
     margin-top: 3em;    
 }
 
@@ -61,8 +61,9 @@ footer {
     }
     .site-title {
         align-self: flex-end;
+        margin-bottom: -2.6em;
         h1, h2 {
-            margin-bottom: -.85em;
+            margin-bottom: 0;
             line-height: 1;
         }
     }
@@ -79,8 +80,12 @@ footer {
 }
 
 .site-header.not-home {
-    h2 {
+    h2 a {
+        color: $theme-green;
         font-family: $display-font;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 1.5em;
     }
 }
 
@@ -125,17 +130,18 @@ a {
     text-transform: uppercase;
     color: white;
     margin-right: 1em;
+    margin-top: .75em;
 }
 
 .home-container {
     .trail-square {
         background-color: $primary;
-        min-height: 14em;
-        margin-top: 2em;
+        min-height: 17em;
+        margin-top: 1em;
         padding: .5em;
         font-size: 1.5em;
         .trail-photo {
-            height: 5em;
+            margin: -.5em -.5em 1em -.5em;
         }
         .trail-name {
             background-color: white;
@@ -162,7 +168,7 @@ a {
         color: white;
         font-family: $display-font;
         p {
-            font-size: .65em;
+            font-family: $body-font;
         }
         hr {
             border: 4px solid white;

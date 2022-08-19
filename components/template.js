@@ -33,27 +33,36 @@ export default function Template({ children, home }) {
               </div>
             </div>
           ) : (
-            <div className='row site-header not-home'>
-              <div className="col-sm-6">
-                <h2>
-                  <Link href="/">
-                    <a>Bike<br />Casper</a>
-                  </Link>
-                </h2>
-              </div>
-              <div className="col-sm-6 header-nav">
-                <Link href="/">
-                  <a>Trails List</a>
-                </Link>
-              </div>
+            <div className="container">
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="site-header not-home">
+                    <div className="site-title">
+                      <h2>
+                        <Link href="/">
+                          <a>Bike<br />Casper</a>
+                        </Link>
+                      </h2>                    
+                    </div>
+                    <div className="site-description">
+                      <p>Up-to-date local info for mountain biking near Casper, Wyoming.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>              
             </div>
           )}
         </header>
         <main>{children}</main>
       </div>
       <footer>
-        <p>Support local! Visit one of Casper&lsquo;s bike shops, and consider joining the Central Wyoming Trails Association.</p>
-        <p className="small">&copy; 2022</p>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <p>BIKE LOCAL / CASPER. &copy; 2022 Collin Rudkin. Design by Sarah Rudkin.</p>
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
   );
