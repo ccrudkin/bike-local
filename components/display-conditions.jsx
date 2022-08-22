@@ -18,34 +18,59 @@ export default function DisplayConditions({ condSubmit, setCondSubmit, condition
   };
 
   return (
-    <div className="row mt-3">
-      <div className="col-md-12">
-        <h3>Trail Conditions</h3>
-        {
-          displayReports
-          ? <RecentCommonSwitch condition={displayReports[toggle.condition]} handleToggle={handleToggle} />
-          : <p><span className="loading-placeholder loading-text"></span></p>
-        }
-        {
-          displayReports && displayReports[toggle].condition !== 'nodata' && toggle === 'recent'
-          ? <p>
-              <span className="trail-detail trail-detail-alt">{displayReports[toggle].condition} &ndash; <em>on {displayReports[toggle].date.toDateString()}</em></span>
-            </p>
-          : displayReports && displayReports[toggle].condition !== 'nodata' && toggle === 'common'
-          ? <p>
-              <span className="trail-detail">
-                {displayReports[toggle].condition} 
-                &nbsp;&ndash;&nbsp;
-                <em>reported {displayReports[toggle].number} {displayReports[toggle].number === 1 ? 'time' : 'times'} in 30 days</em></span>
-            </p>
-          : displayReports && displayReports[toggle].condition === 'nodata'
-          ? <p>
-              <span className="trail-detail">no recent reports</span>
-            </p>
-          : <p><span className="loading-placeholder loading-text"></span></p>
-        }
-        <ReportConditions pageID={localeId} condSubmit={condSubmit} setCondSubmit={setCondSubmit} />
+    <>
+      <div className="row">
+        <div className="col-md-12">
+          <h3 className='trail-conditions-title'>Trail Conditions</h3>
+        </div>
       </div>
-    </div>
+      <div className="row">
+        <div className="col-sm-6 mb-4 mb-sm-0">
+          <div className="display-reports-container">
+          {
+            displayReports
+            ? <RecentCommonSwitch condition={displayReports[toggle.condition]} handleToggle={handleToggle} />
+            : <p><span className="loading-placeholder loading-text"></span></p>
+          }
+          {
+            displayReports && displayReports[toggle].condition !== 'nodata' && toggle === 'recent'
+            ? <div>
+                <div className='condition-phrase'>
+                  {displayReports[toggle].condition}
+                </div>
+                <div className='condition-explanation'>
+                  <em>{displayReports[toggle].date.toDateString()}</em>
+                </div>
+              </div>
+              
+            : displayReports && displayReports[toggle].condition !== 'nodata' && toggle === 'common'
+            ? <div>
+                <div className='condition-phrase condition-alt'>
+                  {displayReports[toggle].condition}
+                </div>
+                <div className='condition-explanation condition-alt'>
+                  <em>Reported {displayReports[toggle].number} {displayReports[toggle].number === 1 ? 'time' : 'times'} in 30 days</em>
+                </div>
+              </div>
+            : displayReports && displayReports[toggle].condition === 'nodata'
+            ? <div>
+                <div className='condition-phrase condition-alt'>
+                  No recent reports
+                </div>
+                <div className='condition-explanation condition-alt'>
+                  &mdash; &mdash;
+                </div>
+              </div>
+            : <p><span className="loading-placeholder loading-text"></span></p>
+          }
+          </div>
+        </div>
+        <div className="col-sm-6">
+          <div className="display-reports-container">
+            <ReportConditions pageID={localeId} condSubmit={condSubmit} setCondSubmit={setCondSubmit} />
+          </div>
+        </div>
+      </div>
+    </>
   );
 };

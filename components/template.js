@@ -23,7 +23,11 @@ export default function Template({ children, home }) {
                 <div className="col-md-12">
                   <div className='site-header home'>
                     <div className="site-title">
-                      <h1>Bike<br />Casper</h1>
+                      <Image 
+                      src='/bike-casper-logo.svg'
+                      alt='Bike Casper'
+                      width={349}
+                      height={152} />
                     </div>
                     <div className="site-description">
                       <p>Up-to-date local info for mountain biking near Casper, Wyoming.</p>
@@ -38,11 +42,15 @@ export default function Template({ children, home }) {
                 <div className="col-md-12">
                   <div className="site-header not-home">
                     <div className="site-title">
-                      <h2>
-                        <Link href="/">
-                          <a>Bike<br />Casper</a>
-                        </Link>
-                      </h2>                    
+                      <Link href="/">
+                        <a>
+                          <Image 
+                          src='/bike-casper-logo.svg'
+                          alt='Bike Casper'
+                          width={349}
+                          height={152} />
+                        </a>
+                      </Link>                  
                     </div>
                     <div className="site-description">
                       <p>Up-to-date local info for mountain biking near Casper, Wyoming.</p>
@@ -59,7 +67,11 @@ export default function Template({ children, home }) {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <p>BIKE LOCAL / CASPER. &copy; 2022 Collin Rudkin. Design by Sarah Rudkin.</p>
+              <p>
+                <span className="text-nowrap">BIKE LOCAL / CASPER.</span>&ensp;
+                <span className="text-nowrap">&copy; 2022 Collin Rudkin.</span>&ensp;
+                <span className="text-nowrap">Design by Sarah Rudkin.</span>
+              </p>
             </div>
           </div>
         </div>

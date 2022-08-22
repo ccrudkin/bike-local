@@ -12,6 +12,7 @@ $font-family-sans-serif: 'Rubik', sans-serif;
 // variables
 $green: #27ae60;
 $blue: #2980b9;
+$gray-green: #c7cec6;
 $lt-gray: #eeeeee;
 $md-lt-gray: #cccccc;
 $md-gray: #aaaaaa;
@@ -20,6 +21,8 @@ $black: #111111;
 $red: #cc492f;
 $display-font: 'Rubik Mono One', sans-serif;
 $body-font: $font-family-sans-serif;
+
+$border-radius-sm: .25em;
 
 $theme-yellow: #d8bd4c;
 $theme-green: #275d42;
@@ -61,7 +64,8 @@ footer {
     }
     .site-title {
         align-self: flex-end;
-        margin-bottom: -2.6em;
+        margin-bottom: -4em;
+        margin-left: -2em;
         h1, h2 {
             margin-bottom: 0;
             line-height: 1;
@@ -122,6 +126,12 @@ a {
     color: $black;
 }
 
+.trail-difficulty {
+    i {
+        margin-left: .25em;
+    }
+}
+
 // index only; separate out
 
 .all-trails-details {
@@ -136,6 +146,9 @@ a {
 .home-container {
     .trail-square {
         background-color: $primary;
+        background-image: url('/topo-overlay.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
         min-height: 17em;
         margin-top: 1em;
         padding: .5em;
@@ -157,9 +170,6 @@ a {
             }
             .trail-difficulty {
                 align-self: flex-end;
-                i {
-                    margin-left: .25em;
-                }
             }
         }
     }
@@ -180,30 +190,85 @@ a {
 
 // locale pages only; separate out
 
+h1.locale-title {
+    color: $red;
+    font-family: $display-font;
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+.trail-squiggle-container {
+    margin: {
+        top: 1em;
+        bottom: 2em;
+        right: -1.5rem;
+    }
+}
+
+.trail-image-container {
+    margin-bottom: 2rem;
+}
+
 .map-container {
     max-width: 50em;
     margin: auto;
 }
 
+.trail-description {
+    font-weight: 700;
+}
+
 .trail-detail {
-    border: 1px solid $primary;
-    border-radius: 1em;
-    padding: .1em .5em .25em .5em;
-    margin-left: .5em;
-    margin-top: .25em;
-    white-space: nowrap;
+    color: $red;
+    font-family: $display-font;
 }
 
 .trail-detail.trail-detail-alt {
     border-color: $secondary;
 }
 
+.trail-detail-type {
+    background-color: $red;
+    color: white;
+    font-family: $display-font;
+    padding: 0em .5em;
+    margin-right: 1em;
+}
+
+.trail-conditions-title, .weather-title {
+    font-family: $display-font;
+    color: $primary;
+    margin-top: 2rem;
+}
+
+.display-reports-container {
+    background-color: $lt-gray;
+    padding: .5em 1em 1em 1em;
+    height: 100%;
+    border-radius: $border-radius-sm;
+    .btn {
+        margin-top: -.15em;
+    }
+    :after {
+        display: block;
+        height: 1rem;
+    }
+}
+
+.conditions-container {
+    background-color: $gray-green;
+}
+
 .conditions-label {
     margin-bottom: .5em;
+    font-family: $display-font;
+    color: $red;
 }
 
 #select-conditions {
+    height: 2.35em;
     margin-bottom: 1em;
+    margin-right: 1em;
     box-shadow: none;
     transition: box-shadow .25s;
 }
@@ -214,7 +279,8 @@ a {
 }
 
 .btn.btn-report, .btn.btn-rode-it {
-    width: 8em;
+    width: 12em;
+    font-family: $display-font;
 }
 
 .btn.btn-report.submitted,
@@ -235,6 +301,49 @@ a {
     color: $red;
 }
 
+
+.weather-container {
+    display: flex;
+    overflow-x: auto;
+}
+
+.weather-day-container {
+    width: 25%;
+    min-width: 15rem;
+    margin-bottom: 2rem;
+    &:not(:last-of-type) {
+        margin-right: 1rem;
+    }
+}
+
+.weather-day {
+    padding: .5em  1em;
+    background-color: $lt-gray;
+    border-radius: $border-radius-sm;
+    height: 100%;
+    color: $primary;
+    .weather-day-name {
+        font-family: $display-font;
+    }
+    .weather-day-temp {
+        font-size: 2.5em;
+    }
+}
+
+.back-to-trails {
+    background-image: url('/squiggle-white-back.svg');
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin: {
+        left: -1rem;
+        right: -1rem;
+    }
+    padding: {
+        left: 1rem;
+        top: .5rem;
+    }
+}
+
 // switch
 
 .recentCommonContainer {
@@ -244,9 +353,33 @@ a {
     }
 }
 
-.recentCommonLabel {
-    font-size: .85em;
-    color: $dk-gray;
+.recentLabel, .commonLabel {
+    font-size: .75em;
+    font-family: $display-font;
+    margin-top: .25em;
+}
+
+.recentLabel {
+    color: $secondary;
+}
+
+.commonLabel {
+    color: $primary;
+}
+
+.condition-phrase {
+    font-size: 1.5em;
+    text-transform: capitalize;
+    color: $secondary;
+}
+
+.condition-explanation {
+    color: $secondary;
+}
+
+.condition-phrase.condition-alt,
+.condition-explanation.condition-alt {
+    color: $primary;
 }
 
  // the box around the slider 
@@ -350,13 +483,6 @@ input {
     height: 1em;
 }
 
-.weather-day {
-    padding: .5em  1em;
-    background-color: $lt-gray;
-    border-radius: .5em;
-    height: 100%;
-}
-
 @keyframes loadfade {
     0%, 100% { opacity: .5 }
     50% { opacity: 1 }
@@ -382,19 +508,34 @@ input {
     footer {
         padding: 1em 1.5em;
     }
-    .site-header .header-nav {
+    .site-header {
         flex-direction: column;
-        align-items: flex-start;
-    }    
+        align-items: center;
+        .site-title {
+            margin-bottom: 1rem;
+            align-self: center;
+        }
+        .site-description {
+            text-align: center;
+        }
+    }
     .map-container {
         margin: 1.5em auto;
     }
     .home-container {
-        padding-top: 50vw;
-        padding-bottom: 4em;
-        min-height: 0px;
         .trail-square {
             margin: .5em;
+        }
+    }
+    .trail-squiggle-container {
+        margin-right: 0rem;
+    }
+    .weather-container {
+        margin-right: -1.5rem;
+    }
+    .weather-day-container {
+        &:last-of-type {
+            margin-right: 1rem;
         }
     }
 }

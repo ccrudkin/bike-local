@@ -11806,7 +11806,8 @@ footer {
 }
 .site-header .site-title {
   align-self: flex-end;
-  margin-bottom: -2.6em;
+  margin-bottom: -4em;
+  margin-left: -2em;
 }
 .site-header .site-title h1, .site-header .site-title .h1, .site-header .site-title h2, .site-header .site-title .h2 {
   margin-bottom: 0;
@@ -11857,6 +11858,10 @@ a:hover {
   color: #111111;
 }
 
+.trail-difficulty i {
+  margin-left: 0.25em;
+}
+
 .all-trails-details {
   font-size: 0.9em;
   font-weight: 700;
@@ -11868,6 +11873,9 @@ a:hover {
 
 .home-container .trail-square {
   background-color: #25566f;
+  background-image: url("/topo-overlay.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 17em;
   margin-top: 1em;
   padding: 0.5em;
@@ -11890,9 +11898,6 @@ a:hover {
 .home-container .trail-square .trail-name .trail-difficulty {
   align-self: flex-end;
 }
-.home-container .trail-square .trail-name .trail-difficulty i {
-  margin-left: 0.25em;
-}
 .home-container .local-square {
   background-color: #cc492f;
   color: white;
@@ -11907,30 +11912,83 @@ a:hover {
   opacity: 1;
 }
 
+h1.locale-title, .locale-title.h1 {
+  color: #cc492f;
+  font-family: "Rubik Mono One", sans-serif;
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.trail-squiggle-container {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  margin-right: -1.5rem;
+}
+
+.trail-image-container {
+  margin-bottom: 2rem;
+}
+
 .map-container {
   max-width: 50em;
   margin: auto;
 }
 
+.trail-description {
+  font-weight: 700;
+}
+
 .trail-detail {
-  border: 1px solid #25566f;
-  border-radius: 1em;
-  padding: 0.1em 0.5em 0.25em 0.5em;
-  margin-left: 0.5em;
-  margin-top: 0.25em;
-  white-space: nowrap;
+  color: #cc492f;
+  font-family: "Rubik Mono One", sans-serif;
 }
 
 .trail-detail.trail-detail-alt {
   border-color: #b27926;
 }
 
+.trail-detail-type {
+  background-color: #cc492f;
+  color: white;
+  font-family: "Rubik Mono One", sans-serif;
+  padding: 0em 0.5em;
+  margin-right: 1em;
+}
+
+.trail-conditions-title, .weather-title {
+  font-family: "Rubik Mono One", sans-serif;
+  color: #25566f;
+  margin-top: 2rem;
+}
+
+.display-reports-container {
+  background-color: #eeeeee;
+  padding: 0.5em 1em 1em 1em;
+  height: 100%;
+  border-radius: 0.25em;
+}
+.display-reports-container .btn {
+  margin-top: -0.15em;
+}
+.display-reports-container :after {
+  display: block;
+  height: 1rem;
+}
+
+.conditions-container {
+  background-color: #c7cec6;
+}
+
 .conditions-label {
   margin-bottom: 0.5em;
+  font-family: "Rubik Mono One", sans-serif;
+  color: #cc492f;
 }
 
 #select-conditions {
+  height: 2.35em;
   margin-bottom: 1em;
+  margin-right: 1em;
   box-shadow: none;
   transition: box-shadow 0.25s;
 }
@@ -11941,7 +11999,8 @@ a:hover {
 }
 
 .btn.btn-report, .btn.btn-rode-it {
-  width: 8em;
+  width: 12em;
+  font-family: "Rubik Mono One", sans-serif;
 }
 
 .btn.btn-report.submitted,
@@ -11962,6 +12021,44 @@ a:hover {
   color: #cc492f;
 }
 
+.weather-container {
+  display: flex;
+  overflow-x: auto;
+}
+
+.weather-day-container {
+  width: 25%;
+  min-width: 15rem;
+  margin-bottom: 2rem;
+}
+.weather-day-container:not(:last-of-type) {
+  margin-right: 1rem;
+}
+
+.weather-day {
+  padding: 0.5em 1em;
+  background-color: #eeeeee;
+  border-radius: 0.25em;
+  height: 100%;
+  color: #25566f;
+}
+.weather-day .weather-day-name {
+  font-family: "Rubik Mono One", sans-serif;
+}
+.weather-day .weather-day-temp {
+  font-size: 2.5em;
+}
+
+.back-to-trails {
+  background-image: url("/squiggle-white-back.svg");
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+}
+
 .recentCommonContainer {
   display: flex;
 }
@@ -11969,9 +12066,33 @@ a:hover {
   display: inline-block;
 }
 
-.recentCommonLabel {
-  font-size: 0.85em;
-  color: #666666;
+.recentLabel, .commonLabel {
+  font-size: 0.75em;
+  font-family: "Rubik Mono One", sans-serif;
+  margin-top: 0.25em;
+}
+
+.recentLabel {
+  color: #b27926;
+}
+
+.commonLabel {
+  color: #25566f;
+}
+
+.condition-phrase {
+  font-size: 1.5em;
+  text-transform: capitalize;
+  color: #b27926;
+}
+
+.condition-explanation {
+  color: #b27926;
+}
+
+.condition-phrase.condition-alt,
+.condition-explanation.condition-alt {
+  color: #25566f;
 }
 
 .switch {
@@ -12066,13 +12187,6 @@ input:focus + .slider {
   height: 1em;
 }
 
-.weather-day {
-  padding: 0.5em 1em;
-  background-color: #eeeeee;
-  border-radius: 0.5em;
-  height: 100%;
-}
-
 @keyframes loadfade {
   0%, 100% {
     opacity: 0.5;
@@ -12097,22 +12211,36 @@ input:focus + .slider {
     padding: 1em 1.5em;
   }
 
-  .site-header .header-nav {
+  .site-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+  }
+  .site-header .site-title {
+    margin-bottom: 1rem;
+    align-self: center;
+  }
+  .site-header .site-description {
+    text-align: center;
   }
 
   .map-container {
     margin: 1.5em auto;
   }
 
-  .home-container {
-    padding-top: 50vw;
-    padding-bottom: 4em;
-    min-height: 0px;
-  }
   .home-container .trail-square {
     margin: 0.5em;
+  }
+
+  .trail-squiggle-container {
+    margin-right: 0rem;
+  }
+
+  .weather-container {
+    margin-right: -1.5rem;
+  }
+
+  .weather-day-container:last-of-type {
+    margin-right: 1rem;
   }
 }
 

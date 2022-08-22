@@ -64,7 +64,7 @@ export default function Home({ allTrailsData }) {
                           </div>
                         </div>
                         <div className="all-trails-details">
-                          {distance} / {elevation} <i className="fa-solid fa-arrow-up"></i>
+                          {distance} / {elevation} <i className="fa-solid fa-caret-up"></i>
                         </div>
                       </div>
                     </div>

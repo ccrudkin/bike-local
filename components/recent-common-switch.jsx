@@ -1,7 +1,7 @@
 export default function RecentCommonSwitch({ condition, handleToggle }) {
   return ( 
-    <div className="recentCommonContainer mt-2 mb-3 ms-2">
-      <div className="recentCommonLabel">Most Recent</div>
+    <div className="recentCommonContainer mt-2 mb-1">
+      <div className="recentLabel">Most Recent</div>
       {
         condition !== 'nodata'
         ? <label htmlFor="recentCommonSwitch" className="switch">
@@ -13,7 +13,7 @@ export default function RecentCommonSwitch({ condition, handleToggle }) {
             <span className="slider round"></span>
           </label>
       }
-      <div className="recentCommonLabel">Most Common</div>
+      <div className="commonLabel">Most Common</div>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Template from '../../components/template';
 import DifIcon from '../../components/dificons';
@@ -57,52 +58,78 @@ export default function LocaleInfo({ trailData }) {
           <title>{trailData.name}</title>
           <meta name="description" content={`Get conditions and ride ${trailData.name} near Casper.`} />
         </Head>
-        <div className="row">
-          <div className="col-md-12">
-            <h1>{trailData.name}</h1>
-          </div>
-        </div>
         <div className="row mb-4">
           <div className="col-sm-6">
-            <p>{trailData.description}</p>
+            <div className="trail-squiggle-container">
+              <Image 
+              src='/squiggle-red-locales.svg'
+              alt='red squiggle'
+              layout='responsive'
+              width={450}
+              height={30} />
+            </div>
 
-            <div className="row mt-4 mt-sm-5">
-              <div className="col-sm-7 order-2 order-sm-1">
-                <p><strong>Distance:</strong> <span className="trail-detail">{trailData.distance}</span></p>
-                <p><strong>Elevation gain:</strong> <span className="trail-detail">{trailData.elevation}</span></p>
-                <p><strong>Difficulty:</strong> <span className="ms-2 fs-5"><DifIcon difficulty={trailData.difficulty} /></span></p>
-                <p><strong><i className="fa-solid fa-circle-info"></i> Other notes:</strong><br />{trailData.notes}</p>
-              </div>
-              <div className="col-sm-5 order-1 order-sm-2">
-                <RodeIt
-                  rodeSubmit={rodeSubmit}
-                  setRodeSubmit={setRodeSubmit}
-                  riders={riders}
-                  pageID={localeId} />
-              </div>
+            <h1 className="locale-title">{trailData.name}</h1>            
+
+            <p className='trail-description'>{trailData.description}</p>
+
+            <div className="mt-3 mt-sm-4">
+              <RodeIt
+                rodeSubmit={rodeSubmit}
+                setRodeSubmit={setRodeSubmit}
+                riders={riders}
+                pageID={localeId} />      
+            </div>
+            <div className="mt-4 mb-sm-0 mb-5">
+              <p>
+                <span className="trail-detail-type"><strong>Distance</strong></span>
+                <span className="trail-detail">{trailData.distance}</span></p>
+              <p>
+                <span className="trail-detail-type"><strong>Elevation gain</strong></span>
+                <span className="trail-detail">{trailData.elevation}</span></p>
+              <p>
+                <span className="trail-detail-type"><strong>Difficulty</strong></span>
+                <span className="fs-5 trail-difficulty"><DifIcon difficulty={trailData.difficulty} /></span></p>
+              <p>
+                <span className="trail-detail-type"><strong>Notes</strong></span>
+                {trailData.notes}</p>
             </div>
           </div>
           <div className="col-sm-6">
+            <div className="trail-image-container">
+            <Image 
+              src={`/${trailData.id}-cover.jpg`} 
+              alt={trailData.name}
+              width={960}
+              height={540}
+              layout='responsive' />              
+            </div>
             <div className="map-container" id="map">
               <Map latlong={trailData.latlong} />
             </div>
           </div>
         </div>
-        <TrailWeather 
-        latlong={trailData.latlong} />
-        <DisplayConditions 
+      </div>
+      <div className="container-fluid conditions-container">
+        <div className="container">
+          <DisplayConditions 
           condSubmit={condSubmit}
           setCondSubmit={setCondSubmit}
           condition={condition} 
-          localeId={localeId} />
+          localeId={localeId} />          
+          <TrailWeather 
+          latlong={trailData.latlong} />
+        </div>
+      </div>
+      <div className="container">
         <div className="mt-4">&nbsp;</div>
         <div className="row mt-5 mb-3">
           <div className="col-md-12">
-            <p>
+            <div className='back-to-trails'>
               <Link href="/">
-                <a><i className="fa-solid fa-circle-arrow-left"></i> Back to all trails</a>
+                <a><i className="fa-solid fa-caret-left"></i> Back to all trails</a>
               </Link>
-            </p>
+            </div>
           </div>
         </div>
       </div>

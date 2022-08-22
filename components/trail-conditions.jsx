@@ -115,7 +115,7 @@ export default function ReportConditions({ pageID, condSubmit, setCondSubmit }) 
     }
 
     return (
-        <div className="mt-4">
+        <div>
             <label htmlFor="select-conditions" className="conditions-label">Report current conditions:</label>
             <br />
             <select name="conditions-report" value={conditions} id="select-conditions" onChange={handleChange}>
@@ -128,7 +128,6 @@ export default function ReportConditions({ pageID, condSubmit, setCondSubmit }) 
                 <option value="heavy-snow">Heavy snow and ice</option>
                 <option value="obstructed">Damaged or obstructed</option>
             </select>
-            <br />
             {
                 condSubmit === 'not-submitted' && conditions !== '' &&
                 <button className="btn btn-primary btn-report" onClick={handleClick}>Submit</button>

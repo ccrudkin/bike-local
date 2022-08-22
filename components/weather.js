@@ -67,8 +67,8 @@ export default function TrailWeather({ latlong }) {
 
   return (
     <>
-      <div className="row mt-4 mb-4">
-        <h3>Weather Forecast</h3>
+      <h3 className='weather-title'>Weather Forecast</h3>
+      <div className="weather-container">
         {weather && weather.length === 4
           ? weather.map(({
             name,
@@ -78,12 +78,12 @@ export default function TrailWeather({ latlong }) {
             windDirection,
             shortForecast
           }, index) => (
-            <div key={index} className="col-sm-3 mt-2">
+            <div key={index} className="weather-day-container">
               <div className="weather-day">
                 <p>
-                  <strong>{name}</strong>
+                  <span className='weather-day-name'>{name}</span>
                   <br />
-                  <span className="fs-3">{temperature}&deg;{temperatureUnit}</span>
+                  <span className="weather-day-temp">{temperature}&deg;{temperatureUnit}</span>
                   <br />
                   Wind {windSpeed} {windDirection}
                 </p>
@@ -99,7 +99,7 @@ export default function TrailWeather({ latlong }) {
               </div>
             </div>
             : [...Array(4)].map((elem, index) => (
-              <div key={index} className="col-sm-3 mt-2">
+              <div key={index} className="col-3 weather-day-container">
                 <span className='loading-placeholder loading-text'></span>
                 <br />
                 <span className='loading-placeholder loading-md'></span>
