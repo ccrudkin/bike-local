@@ -92,21 +92,26 @@ export default function TrailWeather({ latlong }) {
             </div>
           ))
           : weather && weather[0] === 'error'
-            ? <div className="col-sm-12">
+            ? <div className="mt-4 mb-5">
               <p><i className="fa-solid fa-circle-exclamation"></i> Could not get current weather forecast. Please try again.</p>
               <div className="mt-2 mb-2">
                 <button className="btn btn-warning" onClick={handleClick}>Retry</button>
               </div>
             </div>
             : [...Array(4)].map((elem, index) => (
-              <div key={index} className="col-3 weather-day-container">
-                <span className='loading-placeholder loading-text'></span>
-                <br />
-                <span className='loading-placeholder loading-md'></span>
-                <br />
-                <span className='loading-placeholder loading-text'></span>
-                <br />
-                <span className='loading-placeholder loading-text'></span>
+              <div key={index} className="weather-day-container">
+                <div className="weather-day">
+                  <span className='loading-placeholder loading-text'></span>
+                  <br />
+                  <span className='loading-placeholder loading-md'></span>
+                  <br />
+                  <span className='loading-placeholder loading-md'></span>
+                  <br />
+                  <br />
+                  <span className='loading-placeholder loading-text'></span>
+                  <br />
+                  <span className='loading-placeholder loading-text'></span>
+                </div>
               </div>
             ))
         }

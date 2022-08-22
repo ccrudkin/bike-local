@@ -11871,13 +11871,15 @@ a:hover {
   margin-top: 0.75em;
 }
 
+.home-container .trail-square-container {
+  margin-bottom: 2rem;
+}
 .home-container .trail-square {
   background-color: #25566f;
   background-image: url("/topo-overlay.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 17em;
-  margin-top: 1em;
+  height: 100%;
   padding: 0.5em;
   font-size: 1.5em;
 }
@@ -11910,6 +11912,12 @@ a:hover {
   border: 4px solid white;
   margin: 0em 0em 1em -1em;
   opacity: 1;
+}
+.home-container .local-square .local-squiggle-container {
+  width: 90%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: -1.5rem;
 }
 
 h1.locale-title, .locale-title.h1 {
@@ -12159,7 +12167,7 @@ input:focus + .slider {
 }
 
 .loading-placeholder {
-  background-color: #eeeeee;
+  background-color: #cccccc;
   border-radius: 1em;
   opacity: 1;
   animation: loadfade infinite 1s linear;
@@ -12167,7 +12175,7 @@ input:focus + .slider {
 }
 
 .loading-placeholder.dk-load {
-  background-color: #cccccc;
+  background-color: #aaaaaa;
 }
 
 .loading-md {

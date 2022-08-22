@@ -42,10 +42,11 @@ export default function Home({ allTrailsData }) {
           <div className="row">
             <div className="col-md-12">
               <div className="mt-5"></div>
+              <div className="pt-0 pt-sm-3"></div>
               <div className="row">
                 {allTrailsData
                   ? allTrailsData.map(({ id, name, difficulty, distance, elevation }) => (
-                    <div className='col-sm-6 col-lg-4' key={id}>
+                    <div className='col-sm-6 col-lg-4 trail-square-container' key={id}>
                       <div className="trail-square">
                         <div className="trail-photo">
                           <Image 
@@ -64,7 +65,7 @@ export default function Home({ allTrailsData }) {
                           </div>
                         </div>
                         <div className="all-trails-details">
-                          {distance} / {elevation} <i className="fa-solid fa-caret-up"></i>
+                          {distance}<br />{elevation} <i className="fa-solid fa-caret-up"></i>
                         </div>
                       </div>
                     </div>
@@ -79,14 +80,21 @@ export default function Home({ allTrailsData }) {
                 }
                 {
                   allTrailsData
-                  ? <div className="col-sm-6 col-lg-4">
+                  ? <div className="col-sm-6 col-lg-4 trail-square-container">
                       <div className="trail-square local-square">
                         <h3>Support<br />Local!</h3>
-                        <hr />
+                        <div className="local-squiggle-container">
+                          <Image 
+                          src="/squiggle-white-support-local.svg"
+                          alt="white squiggle"
+                          height={9}
+                          width={174}
+                          layout={'responsive'} />
+                        </div>
                         <p>Visit one of Casper‘s bike shops, and consider joining the Central Wyoming Trails Alliance.</p>
                       </div>
                     </div>
-                  : <div className='col-sm-6 col-lg-4'>
+                  : <div className='col-sm-6 col-lg-4 trail-square-container'>
                       <span className='loading-placeholder dk-load loading-md'></span>
                       <br />
                       <span className='loading-placeholder dk-load loading-sm'></span>
