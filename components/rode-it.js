@@ -62,7 +62,7 @@ export default function RodeIt({ rodeSubmit, setRodeSubmit, riders, pageID }) {
                 ? <div className="rode-reports-text">
                     <span className="rode-number">{riders}</span> riders in the last 30 days.
                 </div>
-                : <p><span className="loading-placeholder loading-text"></span></p>
+                : <p><span className="loading-placeholder dk-load loading-text"></span></p>
             }                   
         </div>
     )

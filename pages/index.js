@@ -91,7 +91,7 @@ export default function Home({ allTrailsData }) {
                           width={174}
                           layout={'responsive'} />
                         </div>
-                        <p>Visit one of Casper‘s bike shops, and consider joining the Central Wyoming Trails Alliance.</p>
+                        <p>Visit one of Casper&rsquo;s bike shops, and consider joining the Central Wyoming Trails Alliance.</p>
                       </div>
                     </div>
                   : <div className='col-sm-6 col-lg-4 trail-square-container'>
