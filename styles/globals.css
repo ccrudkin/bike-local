@@ -11907,6 +11907,7 @@ a:hover {
 }
 .home-container .local-square p {
   font-family: "Rubik", sans-serif;
+  font-weight: 700;
 }
 .home-container .local-square hr {
   border: 4px solid white;
