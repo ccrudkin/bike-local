@@ -11882,9 +11882,14 @@ a:hover {
   height: 100%;
   padding: 0.5em;
   font-size: 1.5em;
+  border-radius: 0.25rem;
 }
 .home-container .trail-square .trail-photo {
   margin: -0.5em -0.5em 1em -0.5em;
+}
+.home-container .trail-square .trail-photo img {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
 }
 .home-container .trail-square .trail-name {
   background-color: white;
@@ -11974,7 +11979,7 @@ h1.locale-title, .locale-title.h1 {
   background-color: #eeeeee;
   padding: 0.5em 1em 1em 1em;
   height: 100%;
-  border-radius: 0.25em;
+  border-radius: 0.25rem;
 }
 .display-reports-container .btn {
   margin-top: -0.15em;
@@ -12047,7 +12052,7 @@ h1.locale-title, .locale-title.h1 {
 .weather-day {
   padding: 0.5em 1em;
   background-color: #eeeeee;
-  border-radius: 0.25em;
+  border-radius: 0.25rem;
   height: 100%;
   color: #25566f;
 }
@@ -12245,13 +12250,13 @@ input:focus + .slider {
   }
 
   .weather-container {
-    margin-left: -1.5rem;
-    padding-left: 1.5rem;
-    margin-right: -1.5rem;
+    margin-left: -0.75rem;
+    padding-left: 0.75rem;
+    margin-right: -0.75rem;
   }
 
   .weather-day-container:last-of-type {
-    margin-right: 1rem;
+    margin-right: 0.75rem;
   }
 }
 

@@ -53,7 +53,7 @@ export default function LocaleInfo({ trailData }) {
 
   return (
     <Template>
-      <div className="container mt-5">
+      <div className="container mt-4 mt-sm-5">
         <Head>
           <title>{trailData.name}</title>
           <meta name="description" content={`Get conditions and ride ${trailData.name} near Casper.`} />
@@ -110,7 +110,7 @@ export default function LocaleInfo({ trailData }) {
           </div>
         </div>
       </div>
-      <div className="container-fluid conditions-container">
+      <div className="conditions-container">
         <div className="container">
           <DisplayConditions 
           condSubmit={condSubmit}

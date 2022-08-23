@@ -22,7 +22,7 @@ $red: #cc492f;
 $display-font: 'Rubik Mono One', sans-serif;
 $body-font: $font-family-sans-serif;
 
-$border-radius-sm: .25em;
+$border-radius-sm: .25rem;
 
 $theme-yellow: #d8bd4c;
 $theme-green: #275d42;
@@ -155,8 +155,13 @@ a {
         height: 100%;
         padding: .5em;
         font-size: 1.5em;
+        border-radius: $border-radius-sm;
         .trail-photo {
             margin: -.5em -.5em 1em -.5em;
+            img {
+                border-top-left-radius: $border-radius-sm;
+                border-top-right-radius: $border-radius-sm;
+            }
         }
         .trail-name {
             background-color: white;
@@ -542,13 +547,13 @@ input {
         margin-right: 0rem;
     }
     .weather-container {
-        margin-left: -1.5rem;
-        padding-left: 1.5rem;
-        margin-right: -1.5rem;
+        margin-left: -.75rem;
+        padding-left: .75rem;
+        margin-right: -.75rem;
     }
     .weather-day-container {
         &:last-of-type {
-            margin-right: 1rem;
+            margin-right: .75rem;
         }
     }
 }
