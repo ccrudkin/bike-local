@@ -31,6 +31,7 @@ Refining phase, mainly working on smoother functionality, errors, and edge cases
 \[x\] Add damp/firm condition; order drop down differently  
 \[-\] Favicon  
 \[x\] Deploy test  
+\[ \] Production photos for all trails  
 
 ### Phase 2
 \[-\] Interactive map  
