@@ -11960,7 +11960,7 @@ h1.locale-title, .locale-title.h1 {
   background-color: #cc492f;
   color: white;
   font-family: "Rubik Mono One", sans-serif;
-  padding: 0em 0.5em;
+  padding: 0.15em 0.5em 0em 0.5em;
   margin-right: 1em;
 }
 

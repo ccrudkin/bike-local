@@ -36,7 +36,7 @@ Refining phase, mainly working on smoother functionality, errors, and edge cases
 \[-\] Interactive map  
 \[ \] Add local interests page (shops, breweries, restaurants, etc.)  
 \[ \] Cookies for I Rode It! and condition report (once per day per trail)  
-\[ \] Cookies alert  
+\[ \] Cookies notice  
 \[ \] Add editor interface for adding new trails  
 
 ## Resources
