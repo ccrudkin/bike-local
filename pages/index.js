@@ -46,7 +46,7 @@ export default function Home({ allTrailsData }) {
               <div className="row">
                 {allTrailsData
                   ? allTrailsData.map(({ id, name, difficulty, distance, elevation }) => (
-                    <div className='col-sm-6 col-lg-4 trail-square-container' key={id}>
+                    <div className='col-md-6 col-lg-4 trail-square-container' key={id}>
                       <div className="trail-square">
                         <div className="trail-photo">
                           <Image 
@@ -71,7 +71,7 @@ export default function Home({ allTrailsData }) {
                     </div>
                   ))
                   : [...Array(5)].map((elem, index) => (
-                    <div className='col-sm-6 col-lg-4' key={id}>
+                    <div className='col-md-6 col-lg-4' key={id}>
                       <span className='loading-placeholder dk-load loading-md'></span>
                       <br />
                       <span className='loading-placeholder dk-load loading-sm'></span>
@@ -80,7 +80,7 @@ export default function Home({ allTrailsData }) {
                 }
                 {
                   allTrailsData
-                  ? <div className="col-sm-6 col-lg-4 trail-square-container">
+                  ? <div className="col-md-6 col-lg-4 trail-square-container">
                       <div className="trail-square local-square">
                         <h3>Support<br />Local!</h3>
                         <div className="local-squiggle-container">
@@ -94,7 +94,7 @@ export default function Home({ allTrailsData }) {
                         <p>Visit one of Casper&rsquo;s bike shops, and consider joining the Central Wyoming Trails Alliance.</p>
                       </div>
                     </div>
-                  : <div className='col-sm-6 col-lg-4 trail-square-container'>
+                  : <div className='col-md-6 col-lg-4 trail-square-container'>
                       <span className='loading-placeholder dk-load loading-md'></span>
                       <br />
                       <span className='loading-placeholder dk-load loading-sm'></span>

@@ -11904,9 +11904,12 @@ a:hover {
 }
 .home-container .trail-square .trail-name .trail-difficulty {
   align-self: flex-end;
+  min-width: 3.75rem;
+  text-align: right;
 }
 .home-container .local-square {
   background-color: #cc492f;
+  background-image: url("/topo-30.svg");
   color: white;
   font-family: "Rubik Mono One", sans-serif;
 }

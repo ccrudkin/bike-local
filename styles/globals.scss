@@ -177,11 +177,14 @@ a {
             }
             .trail-difficulty {
                 align-self: flex-end;
+                min-width: 3.75rem;
+                text-align: right;
             }
         }
     }
     .local-square {
         background-color: $red;
+        background-image: url('/topo-30.svg');
         color: white;
         font-family: $display-font;
         p {
